@@ -1,0 +1,40 @@
+% Parameters
+clear
+X0 = 1;         % Initial Value
+mu = 0.1;       % Drift
+sigma = 0.2;    % Volatility
+T = 10;         % Total Time
+N = 1000;       % Number of time steps
+dt = T / N;     % Time increment
+t = linspace(0, T, N+1);    % Time vector
+M = 100;        % Number of simulated paths
+
+% Preallocate matrix for X(t) paths
+X = zeros(M, N+1);
+X(:,1) = X0;
+
+% Simulate GBM paths
+for i = 1:M
+    dW = sqrt(dt) * randn(1,N);     % Brownian increments
+    W = [0, cumsum(dW)];            % Brownian motion W_0 = 0 added
+    X(i,:) = X0 + mu * t + sigma * W;
+end % for
+
+% Compute the empirical mean across paths at each time point
+X_mean = X0 * exp(mu * t);
+
+% Plot all paths
+figure;
+plot(t, X', 'r');   % Red for individual paths
+hold on;
+
+% Plot the emprical mean
+plot(t, X_mean, 'k', 'LineWidth', 2);   % Bold black line for mean
+hold off;
+
+% Labels and title
+figure(1)
+title('100 Simulated Paths of Geometric Brownian Motion with Mean');
+xlabel('Time');
+ylabel('X(t)');
+grid on;

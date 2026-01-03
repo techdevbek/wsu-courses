@@ -1,0 +1,91 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+\begin{document}
+Solution:\\
+(i) Deriving Semidiscrete variational formulation of the Burp:\\
+(1) $\frac{\partial u}{\partial t}-\frac{\partial^{2} u}{\partial x^{2}}=0,0<x<1$\\
+(2) $B C: U(0, t)=u(1, t)=0$\\
+(3) IC: $U(x, 0)=u_{0}(x)$, and
+
+$$
+u(x, 0)=u_{0}=\left\{\begin{array}{lll}
+2 x, & \text { for } & x \in[0,1 / 2] \\
+2-2 x & \text { for } & x \in\left[\frac{1}{2} ; 1\right]
+\end{array}\right.
+$$
+
+Let the time and the length spaces, $7, \Omega, \mathrm{be}$\\
+(4) $\left\{\begin{array}{l}T:=(0, T) \text { for rome } \quad T>0, \quad \text { and } \\ \Omega:=(0,1) \text { for } x \in \Omega \text {. }\end{array}\right.$ the admissible space, $V$, be\\
+(5) $V:=\left\{\begin{array}{l}(i) \\ v \in C(\Omega): \\ v^{\prime}(x) \text { is piecewise continuous } \& ~\end{array}\right.$ $\frac{b o u n d e d}{(i i i)}$ on $\Omega$, and
+
+$$
+\left.\frac{\theta=0}{(i v)} \text { on } \partial \Omega\right\}
+$$
+
+Now to use the Greens formula to find the variational form for (1) -(3) follows as find $u: J \rightarrow V$ sit.\\
+(6) $\int_{\Omega} \frac{\partial u}{\partial t} v d x+\int_{\Omega} \nabla u \cdot \underline{\nabla} v(x) d x=\int_{\Omega} f \cdot v d x \quad \forall v \in V$, $\begin{array}{ll} & t \in J!\end{array}$\\
+(3) $u(x, 0)=u_{0}$ as in (3)
+
+Let $V_{h}$ be a finite element subspace of $V$. Replacing $V$ in system (6) by its discrete analog space $V_{h}$, we have the finite element method: find $u_{h}: J \rightarrow V_{h}$ sit.\\
+(7) $\int_{\Omega} \frac{\partial u}{\partial t} v d x+\int_{\Omega} 卫 u_{h}(x) \cdot \underline{\nabla} v(x) d x=\int_{\Omega} f \cdot v d x \quad \forall \sigma \in V_{h}$
+
+Also using the IC, we how\\
+(3') $\int_{\Omega} u_{h}(x, 0) v(x) d x=\int_{\Omega} u_{0} \cdot \sigma(x) d x \quad \forall \sigma \in V_{h}$\\
+This system is discretized in space, but continuous in time yet. So $(7)+\left(3^{1}\right)$ is called\\
+semidiscrete scheme.\\
+Let the basis functions in $V_{h}$ be denoted by $\varphi_{i}, i=1,2, \ldots M$, and express $U_{h}(x) \in V_{h}$ as\\
+(8) $u_{h}(x, t)=\sum_{i=1}^{M} u_{i}(t) \varphi_{i}(x) \quad(x, t) \in \Omega \times J$,
+
+For $j=1,2, \ldots M$, we take $\theta=\varphi_{j}(2)$ in $(7) \&$ utilize (8) to get, for $t \in J$,
+
+$$
+\int_{\Omega} \frac{\partial}{\partial t}\left[\sum_{i=1}^{M} u_{i}(t) \cdot \varphi_{i}(x)\right] \cdot \varphi_{j}(x) d x+\int_{\Omega} \boxtimes\left[\sum_{i=1}^{M} u_{i}(t) \varphi_{i}(x)\right] \cdot \nabla \varphi_{j}(x) d x
+$$
+
+$$
+=\int_{v} f \cdot \varphi_{j}(x) d x
+$$
+
+$\begin{aligned} &\left(q^{\prime}\right) \Rightarrow \sum_{i=1}^{M} \int_{\Omega} \varphi_{i}(x) \cdot \varphi_{j}(x) d x \cdot \frac{\partial u_{i}(t)}{\partial t}+\sum_{i=1}^{M} \int_{\Omega} \underline{\nabla} \varphi_{i}(x) \cdot \underline{\nabla} \varphi_{j}(x) d x \cdot u_{i}(t) \\ &=\int_{\Omega} f \cdot \varphi_{j}(x) d x\end{aligned}$\\
+for $i, j=1,2, \ldots M \& I C$ in $(3)$ is\\
+(3') $\sum_{i=1}^{M} \int_{\Omega} \varphi_{i}(x) \cdot \varphi_{j}(x) d x \cdot u_{i}(0)=\int_{\Omega} u_{0}{ }^{\wedge} \varphi_{j}(x) d x$\\
+which, in matrix form, is given by\\
+(9) $B \frac{d u_{i}(t)}{d t}+A \cdot u_{i}(t)=f(t), t \in J$\\
+(g) $\quad B \cdot u_{i}(0)=u_{0} \quad i=1,2 \ldots M$\\
+where\\
+the $A \& B$ are $M \times M$ matrices, and, $\bar{u}, \bar{f}$, and $\bar{u}_{0}$ care sectors denoted by
+
+$$
+(10) \begin{cases}A=\left[a_{i j}\right], & a_{i, j}=\int_{\Omega} \underline{\nabla} \varphi_{i} \cdot \underline{\underline{\varphi}} \varphi_{j} d x \\ B=\left[b_{i j}\right], & b_{i j}=\int_{\Omega} \varphi_{i}(x) \cdot \varphi_{j}(x) d x \\ \bar{u}=\left[u_{j}\right] \\ \bar{f}=\left[f_{j}\right], \quad f_{j}=\int_{\Omega} f \cdot \varphi_{j}(x) d x \\ \bar{u}_{0}=\left[\left(u_{0}\right) j\right], \quad\left[u_{0}\right]_{j}=\int_{\Omega} u_{0} \varphi_{j} d x\end{cases}
+$$
+
+Both $A, B$ are symmetric \& positive definite $m$ i) stationary (Laplace eq-n) case.\\
+(ii) Using Forward-Euler method to discretize () the system in (9) $+\left(g^{\prime}\right)$ in time:\\
+(g) $B \frac{d \bar{u}(t)}{d t}+A \bar{u}(t)=\bar{f}(t), \forall t \in \mathcal{J}$\\
+(g') $B \bar{u}(0)=\bar{u}_{0}$\\
+Note that for uniform messing in time space $]$ :\\
+(11) $\frac{d \bar{u}(t)}{d t}=\frac{\bar{u}(t+h)-\bar{u}(t)}{h}$\\
+for small $h$ (satisfying the\\
+\includegraphics[max width=\textwidth]{2025_04_27_ffb468a944d3485e8f57g-5} stability condition).
+
+Iterating (11) in terms of Euler-Method\\
+(12) $\bar{u}(t)=\bar{u}\left(t_{i}\right) \& \bar{u}(t+h)=u\left(t_{i+1}\right)$, s $(9)+\left(9^{\prime}\right)$ is as follows:\\
+B. $\frac{\bar{u}\left(t_{i+1}\right)-\bar{u}\left(t_{i}\right)}{h}+A \cdot \bar{u}\left(t_{i}\right)^{h}=\bar{f}\left(t_{i}\right)^{h} \Rightarrow$\\
+(13) $B \cdot \bar{u}\left(t_{i+1}\right)=(B-h A) \cdot \bar{u}\left(t_{i}\right)+h \cdot \bar{f}\left(t_{i}\right)$\\
+$\lambda$\\
+Should we find $\bar{u}\left(t_{i+1}\right)$ by always solving $B u=z^{-1}$ or\\
+$u=\bar{B}^{\prime} \cdot t$\\
+Should we find $\bar{u}\left(t_{i+1}\right)$ by always solving $\begin{aligned} & B u=z \text { or } \\ & u=\beta^{\prime} \text { 't ( (1) }\end{aligned}$
+
+
+\end{document}

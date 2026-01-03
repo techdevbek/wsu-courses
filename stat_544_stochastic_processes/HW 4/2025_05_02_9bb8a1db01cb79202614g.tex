@@ -1,0 +1,268 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+\def\Perp{\perp\!\!\!\perp}
+
+\begin{document}
+HW4 - Stat 544\\
+Q1 Show that a martingale transform is a martingale (see 2.4)\\
+Martingale transform - The process $Z=\left\{z_{n}, n \geq 0\right\}$ s.t. $Z_{0}=0$ and $Z_{n}=\sum_{i=1}^{n} A_{i} y_{i}=\sum_{i=1}^{n} A_{i}\left(x_{i}-x_{i-1}\right)$ for ) is a martingale transform of $Y$ by $A$.\\
+proof:\\
+Suppose $X_{i}$ is a martingale and $Z_{n}=A_{i-1}\left(x_{i}-x_{i-1}\right)$. Then a martingale transform can be given by the formula
+
+$$
+x_{i}^{\prime}=x_{i-1}^{\prime}+z_{n}
+$$
+
+We know that $A_{i-1}$ is $F_{i-1}$ measureable, and therefore $Z_{n}$ is integrable. Since $X_{i}$ is a martingale it is adapted, and because $x_{i}^{\prime}$ is a function of $x_{\text {: }}$; we can conclude that $x_{i}^{\prime}$ is also adapted. It follows that $\epsilon\left(\left|x_{i}\right|\right)$ is finis, since $\epsilon\left(\left|x_{i}\right|\right)$ is finik by properties of a martingale and $x_{i}$ is a function of $x_{i}$. Then
+
+$$
+E\left(x_{i}^{\prime} \mid f_{i-1}\right)=E\left(\left(x_{i}^{\prime}-x_{i-1}^{\prime}\right)+x_{i-1}^{\prime} \mid f_{i-1}\right)=E\left(x_{i}^{\prime}-x_{i-1}^{\prime} \mid f_{i-1}\right)+E\left(x_{i-1}^{\prime} \mid f_{i-1}\right)=x_{i-1}^{\prime}
+$$
+
+The fore $X_{i}^{\prime}$ is also a martingale. Therefore, a martingale transform is also a martingale. In
+
+Q2 a) Show that the scaled symmetric RW we defined in 2.5 , can be written as:
+
+$$
+X_{\text {Lats }}=\frac{1}{\sqrt{n}} \sum_{i=1}^{\operatorname{Lnt}} \xi_{i}
+$$
+
+b) Show that
+
+$$
+\lim _{n \rightarrow \infty} X_{(n t)} \stackrel{d}{\Perp} W_{t}
+$$
+
+a) The scaled symmetric RW defined in $2.5: \quad \hat{z}_{i}= \begin{cases}\Delta x \quad & p_{i}=1 / 2 \\ -\Delta x & p_{-1}=1 / 2\end{cases}$ $\begin{array}{lll}\text { and } x_{n}(t)=\sum_{i=1}^{n} \hat{z}_{i} & \text { and } x_{0}(t)=0 \\ \text { Given } \epsilon\left(x_{n}(t)\right)=0 & \text { and } & \operatorname{Var}\left(x_{n}(t)\right)=n(\Delta x)^{2}=t \frac{(\Delta x)^{2}}{\Delta t}\end{array}$\\
+Let $\frac{(\Delta x)^{2}}{\Delta t}=1$.\\
+Then $\operatorname{var}\left(X_{n}(t)\right)=t$, and each $\Delta t=\frac{t}{n}$ takes $\frac{1}{\sqrt{n}}$ steps.
+
+$$
+\therefore x_{(n t)}=\frac{1}{\sqrt{n}} \sum_{i=0}^{\operatorname{Lnt})} z_{i}
+$$
+
+b) To converge in distribution: $\lim _{n \rightarrow \infty} F_{x_{n}}(x)=F_{x}(x)$
+
+From part a we know $x_{0}(t)=0$, which supports the first property of a wiener process. We know that $z_{i}$ is independent of $z_{i-1}$, and therefore $x_{i}$ and $x_{i-1}$ are independent so $X_{L n}$ follows the second property of a wiener process. Using the central limit theorem we know that $E\left(X_{L n t J}\right)=0$ and $\operatorname{Var}\left(X_{L n t J}\right)=t$ from part a and therefore $X_{L n t J} \sim N(0$, $t)$, which satisfies condition 3 of a wiener process. Therefore, $X_{\text {int }} \xrightarrow{d} W_{t}$.\\
+${ }^{03}$ Let
+
+$$
+\xi_{i}=\left\{\begin{array}{cc}
+1 & \text { w.p. } p \\
+-1 & \text { w.p. } \\
+q
+\end{array}\right.
+$$
+
+and $x_{n}=\xi_{1}+\xi_{2}+\cdots+\xi_{n}$\\
+a) Show that $X_{n} \xrightarrow{\text { ass. }}-\infty$ (Hint: sLow,\\
+b) Show that $Y_{n}=\left(\frac{q}{p}\right)^{X_{n}}$ is\\
+a martingale.\\
+recall:\\
+$\underline{\text { SLLN }-~} \lim _{n \rightarrow \infty} \bar{x}_{n}=\mu$ (almost sure convergence w/ probability)\\
+almost sine convergence-
+
+$$
+\lim _{n \rightarrow \infty} x_{n}(w)=x(w)=1
+$$
+
+a) $E\left(x_{n}\right)=1(p)+(-1) q=p-q$
+
+We know that $E\left(x_{n}\right)=p-q$ will be negative, as $q>p$.
+
+$$
+\begin{aligned}
+\lim _{n \rightarrow \infty} \bar{x}_{n}= & \lim _{n \rightarrow \infty} \frac{x_{n}}{n}=p-q \\
+& \lim _{n \rightarrow \infty} x_{n}=\lim _{n \rightarrow \infty} n(p-q) \\
+& \lim _{n \rightarrow \infty} x_{n}=-\infty \\
+& \therefore x_{n} \xrightarrow{a . s}-\infty
+\end{aligned}
+$$
+
+per the strong law of large numbers.\\
+where $p-q$ will always be a negative number.\\
+b) (1) $\left\{Y_{n}\right\}$ is adopted\\
+\includegraphics[max width=\textwidth, center]{2025_05_02_9bb8a1db01cb79202614g-3}\\
+(3) $E\left(Y_{t} \mid F_{s}\right)=Y_{s}$ define $0 \leq s \leq t$
+
+$$
+\begin{aligned}
+& \varepsilon\left(\gamma_{t} \mid F_{s}\right)=\left(\frac{f}{p}\right)^{x_{1}-1}=y_{s}
+\end{aligned}
+$$
+
+Qu Let $\left\{W_{t}\right\}_{t \geqslant 0}$ be a standard BM.\\
+Show that the following processes are also standard BM.\\
+a) $B_{t}=-W_{t}$ (reflection)\\
+b) $B_{t}=C W \frac{\pi / c^{2}}{}$ (self-similarity $=$ Invariant in dis tribution under proper spoce-tive scaling)
+
+\begin{itemize}
+  \item Standard Brownian Motion:
+\end{itemize}
+
+\begin{enumerate}
+  \item $W_{t}(w)$ is continuous on $R^{+}$for each $w$
+  \item $w_{0}(w)=0$ for all $w$
+  \item For each $s \geq 0 \quad\left\{w_{t}-w_{s}: t \geq s\right\}$ is independent of $f_{s}$.
+  \item $\left(w_{t}-w_{s}\right) \sim N(0, t-s)$ for each $0 \leq s \leq t$\\
+a) Given $W_{t}$ is a standard $B M$. Thus, $W_{t}$ is continuous and $w_{0}(t)=0$ by definition. Since $B_{t}=-W_{t}$, $B_{t}$ must also be continuous and $B_{0}(t)=-W_{0}(t)=0$. We know that $\left\{W_{t}-W_{s}, s \leq t\right\}$ is independent of $f_{s}$ for each $s \geq 0$. Then
+\end{enumerate}
+
+$$
+\begin{aligned}
+\left\{B_{t}-B_{s} ; s \leq t\right\} & =\left\{-w_{t}-\left(-w_{s}\right) ; s \leq t\right\} \\
+& =\left\{-w_{t}+w_{s} ; s \leq t\right\} \\
+& =-1\left(w_{t}-w_{s}\right)
+\end{aligned}
+$$
+
+which is independent of $f_{s}$ by\\
+definition of a standard BM.\\
+Finally, by definition of a standard $B M \quad\left(W_{t}-W_{s}\right) \sim N(0, t-s)$, and therefore $E\left(W_{t}-W_{s}\right)=0 \quad$ and $E\left(\left(w_{t}-w_{s}\right)^{2}\right)=t-s \quad$ for every $0 \leqslant S \leqslant t$. So
+
+$$
+\begin{aligned}
+E\left(B_{t}-B_{s}\right) & =E\left(-W_{t}-\left(-W_{s}\right)\right) \\
+& =-E\left(W_{t}-W_{s}\right) \\
+& =0 \\
+E\left(\left(B_{t}-B_{s}\right)^{2}\right) & =E\left(\left(-w_{t}-\left(-w_{s}\right)\right)^{2}\right) \\
+& =E\left(\left(-1\left(w_{t}-W_{s}\right)\right)^{2}\right) \\
+& =E\left(\left(w_{t}-W_{s}\right)^{2}\right) \\
+& =t-s
+\end{aligned}
+$$
+
+It follows that $B_{T}=-W_{t}$ is also a standard $B M$, as it meets all of the properties of a standard $B M$. Therefore if $W_{t}$ is a standard $B M$, so is $B_{T}=-W_{t}$.\\
+b) Given $W_{t}$ is a standard BM. Thus, $W_{t}$ is continuous and $w_{0}(t)=0$ by definition. Since $B_{t}=C W \frac{t}{c^{2}}$, $B_{t}$ must also be continuous asitis based on $W_{0}$ and $B_{0}=c W_{0}\left(\frac{t}{c^{2}}\right)=0$.\\
+We know that $\left\{w_{t}-w_{s}, s \leq t\right\}$ is independent of $f_{s}$ for each $s \geq 0$. Then
+
+$$
+\begin{aligned}
+\left\{B_{t}-B_{s} ; s \leq t\right\} & =c W_{\frac{t}{c^{2}}}-c W_{s}^{c^{2}} \\
+& =c\left(W_{\frac{t}{c^{2}}}-W_{\frac{s}{c^{2}}}\right) \text { which is independent of } F_{s} \text { as } W_{t}
+\end{aligned}
+$$
+
+is a standard BM.\\
+Finally, by definition of a standard $B M \quad\left(W_{t}-W_{s}\right) \sim N(0, t-s)$, and therefore $E\left(W_{t}-W_{s}\right)=0 \quad$ and $E\left(\left(w_{t}-w_{s}\right)^{2}\right)=t-s \quad$ for every $0 \leq s \leq t$. So
+
+$$
+\begin{aligned}
+E\left(B_{t}-B_{s}\right) & =E\left(C W\left(\frac{t}{c^{2}}\right)-C W\left(\frac{s}{c^{2}}\right)\right) \\
+& =c E\left(W\left(\frac{t}{c^{2}}\right)-W\left(\frac{s}{c^{2}}\right)\right) \\
+& =c E(W(t)-W(s)) \\
+& =c \cdot 0 \\
+& =0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+E\left(\left(B_{t}-B_{s}\right)^{2}\right) & =E\left(\left(c w\left(\frac{t}{c^{2}}\right)-c w\left(\frac{s}{c^{2}}\right)\right)^{2}\right) \\
+& =E\left(c^{2} w\left(\frac{t}{c^{2}}\right)^{2}-c^{2}\left(w\left(\frac{t}{c^{2}}\right) w\left(\frac{s}{c^{2}}\right)-c^{2} w\left(\frac{s}{c^{2}}\right)^{2}\right)\right. \\
+& =c^{2}\left(E\left(w\left(\frac{t}{c^{2}}\right)^{2}\right)-E\left(w\left(\frac{t}{c^{2}}\right)\right) E\left(w\left(\frac{s}{c^{2}}\right)\right)-E\left(w\left(\frac{s}{c^{2}}\right)\right)^{2}\right) \\
+& =c^{2}(t-0-s) \\
+& =c^{2}(t-s)
+\end{aligned}
+$$
+
+It follows that $B_{T}=C W_{t} C_{2}$ is also a standard $B M$, as it meets all oftre eropertiesof a standard BM. Therefore if $W_{t}$ is a standard $B M$, so is $B_{5}=C W_{t}$
+
+Q5 Prove (A), (B) 2.7\\
+(A) prove $2 \sum_{i<j} E\left(z_{i}^{(n)} z_{j}^{(n)}\right)=0 \quad$ where $i \neq j$\\
+proof:\\
+Let $z_{i}^{(n)}$ and $z_{j}^{(n)}$ be two independent wiener processes, as $i \neq j$.\\
+Then
+
+$$
+2 \sum_{i<j} E\left(z_{i}^{(n)} z_{j}^{(n)}\right)=2 \sum_{i<j} E\left(z_{i}^{(n)}\right) \cdot E\left(z_{j}^{(n)}\right)
+$$
+
+From the definition of a Wiener Process, we know that the expected value of any wiener prows is zero. So,
+
+$$
+2 \sum_{i<j} E\left(z_{i}^{(n)}\right) \cdot E\left(z_{j}^{(n)}\right)=2 \sum_{1<j} 0 \cdot 0=0
+$$
+
+Therefore, $2 \sum_{i<j} E\left(z_{i}^{(n)} z_{j}^{(n)}\right)=0 \quad$ where $i \neq j$. $\Pi$\\
+(B) Prove $E\left[\left(w_{t i+1}-w_{t i}\right)^{4}\right]=3\left(t_{i+1}-t_{i}\right)^{2}$\\
+proof:\\
+$W_{t i}$ and $w_{t i+1}$ follow a gaussian dismibution per the definition of a wiener process $\left(w_{t}-w_{s}\right) \sim N(0, t-s)$ where $s<t$. From this, we can express
+
+$$
+\left.E\left(\left(w_{t i+1}-w_{t i}\right)^{4}\right)=3\left(E\left(\left(w_{t i+1}-w_{t i}\right)\right)^{2}\right)\right)^{2} \quad \text { by properines of a } 4^{\text {th }} \text { moment gaussian R.V. }
+$$
+
+We know from properties of variance of a wiener process that $E\left(\left(w_{t i n}-w_{t i}\right)^{2}\right)=t_{i 11}-t_{i}$. Therefore $E\left(\left(w_{t i 11}-w_{t i}\right)^{4}\right)=3\left(t_{i+1}-t_{i}\right)^{2} \quad \Pi$\\
+recall: $\left\|\Pi_{n}\right\|=\max _{0 \leq i \leq n-1}\left(t_{i+1}-t_{i}\right)$\\
+pg. $7 / 8$
+
+Qu Prove $Q_{2}^{(n)}(W, T) \xrightarrow{m \cdot s} T$ using (C) frow 2.7\\
+recall: $\cdot Q V_{T}(x,[a, b])=[x, x]_{(a, b)}=\lim _{\left\|n_{n}\right\| \rightarrow 0} Q_{2}^{(n)}(x,[a, b])=\lim _{\left\|n_{n}\right\| \rightarrow 0} \sum_{j=0}^{n-1}\left(x_{t_{j+1}}-x_{t j}\right)^{2}=b-a$
+
+$$
+\left.\begin{array}{l}
+\cdot Q^{(n)}=\sum_{i=0}^{n-1}\left(w_{t i+1}-w_{t i}\right)^{2} \\
+\cdot Y^{(n)}=Q^{(n)}-(b-a) \\
+\cdot \operatorname{Var}(x)=E\left(x^{2}\right)-(E(x))^{2}
+\end{array}\right\} p g s \text { of } 2.7 \text { notes }
+$$
+
+(c) Show a) $E\left(Q_{2}^{n}\right)=\underbrace{b-a}_{T}$
+
+$$
+\begin{aligned}
+& \left.\lim _{n \rightarrow \infty} E\left(\sum_{i=0}^{n}\left(\left(w_{t i+1}-w_{t i}\right)^{2}-T\right)\right)^{2}\right) \\
+& \lim _{n \rightarrow \infty}\left(\sum_{i=0}^{n} \operatorname{var}\left(\left(w_{t i+1}-w_{t i}\right)^{2}-T\right)+\left(E\left(\left(w_{t i+i}-w_{t i}\right)^{2}-T\right)\right)^{2}\right) \\
+& \lim _{n \rightarrow \infty} \sum_{i=0}^{n}\left(\operatorname{var}(T-T)+\left(E\left(w_{t i}-w_{t i}\right)^{2}-E(T)\right)^{2}\right) \\
+& \lim _{n \rightarrow \infty} \sum_{i=0}^{n}\left(0+(0-T)^{2}\right)=T M
+\end{aligned}
+$$
+
+b) $\lim _{\left\|\eta_{n}\right\| \rightarrow \infty} \operatorname{Var}\left(Q_{z}^{(n)}\right)=0$
+
+$$
+\begin{aligned}
+& =E\left(\left(\sum_{i=0}^{n}\left(\left(w_{t i+1}-w_{t i}\right)^{2}-T\right)^{2}\right)^{2}\right)=E\left(\sum\left(\left(w_{t i 11}-w_{t i}\right)^{2}-T\right)^{4}\right) \\
+& =3\left(\theta^{2}\right)^{2}=3(0)^{2}=0 .
+\end{aligned}
+$$
+
+Q1 Prove (D) and (E) from 2.7.\\
+(D) $\lim _{\|\Pi\| \rightarrow 0} \sum_{j=0}^{n-1}\left(t_{j+1}-t_{j}\right)^{2}=0$\\
+\includegraphics[max width=\textwidth, center]{2025_05_02_9bb8a1db01cb79202614g-8(1)}
+
+$$
+\begin{gathered}
+0 \cdot \lim _{\|n\| \rightarrow 0} \sum_{j=0}^{n-1}\left(t_{j+1}-t_{j}\right)=0 \\
+0=0 \quad ل
+\end{gathered}
+$$
+
+(E) $\lim _{\|n\| \rightarrow j_{j}} \sum_{i=0}^{n-1}\left(w_{t_{j+1}}-w_{t_{j}}\right)\left(t_{j+1}-t_{j}\right)=0$\\
+\includegraphics[max width=\textwidth, center]{2025_05_02_9bb8a1db01cb79202614g-8}
+
+$$
+0 \cdot T=0 \quad V
+$$
+
+Various notes:
+
+\begin{itemize}
+  \item Eu premium (sup) $\rightarrow$ a set of a functions least upper bound
+  \item $\left\|\Pi_{n}\right\|$ - called the nom/mesh of a partition - the longest subinterval in a partition.\\
+in general, $\left\|\Pi_{n}\right\|=\max _{i \leq i \leq n}\left|t_{i}-t_{i-1}\right|$\\
+\includegraphics[max width=\textwidth, center]{2025_05_02_9bb8a1db01cb79202614g-9}
+\end{itemize}
+
+\end{document}

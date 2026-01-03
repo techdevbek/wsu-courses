@@ -1,0 +1,835 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 27 09:00:00 2025
+
+Basic Grid Generator
+
+@author: joseph.iannelli
+"""
+# -------------------------------------------------------
+# -------------------------------------------------------
+import numpy as np
+import math  # it may be needed for some equations
+
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+
+# -------------------------------------------------------
+# ------------------------------------------------------------------------------
+def main():
+    # ------------------------------------------------
+    #     Activation of Class objects
+
+    my_grid = Grid_Gen()
+
+    my_plot = Plot()
+
+    my_data_mngmt = {"out_p": None, "in_p": None}
+    my_data_mngmt["out_p"] = Output_Data_File_Management()
+    my_data_mngmt["in_p"] = Input_Data_File_Management()
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    #    Utilization of objects
+
+    my_grid.form_cart_coord()
+    my_grid.form_grid_connection_array()
+    my_grid.form_boundary_connection_array()
+    my_grid.form_node_connection_array()
+    my_grid.form_boundary_condition_array()
+
+    my_plot.chart_it(my_grid.el_nodes, my_grid.cart_coord)
+
+    store_grid_data(my_data_mngmt, my_grid)
+
+    # ------------------------------------------------
+
+    return
+
+
+# -------------------------------------------------------
+# -------------------------------------------------------
+def store_grid_data(*objs):
+    my_data_mngmt = objs[0]
+    my_grid = objs[1]
+
+    print()
+    print("Grid Parameters")
+    my_data_mngmt["out_p"].set_data(my_grid.grid_parameters)
+    my_data_mngmt["out_p"].save_matrix("g_parameters")
+
+    print()
+    print("Cartesian Coordinates")
+    my_data_mngmt["out_p"].set_data(my_grid.cart_coord)
+    my_data_mngmt["out_p"].save_matrix("coordinates")
+
+    print()
+    print("Node Connectivity")
+    my_data_mngmt["out_p"].set_data(my_grid.i_point)
+    my_data_mngmt["out_p"].save_matrix("i_connectivity")
+
+    print()
+    print("Element Connectivity")
+    my_data_mngmt["out_p"].set_data(my_grid.el_nodes)
+    my_data_mngmt["out_p"].save_matrix("e_connectivity")
+
+    print()
+    print("Boundary-Element Connectivity")
+    my_data_mngmt["out_p"].set_data(my_grid.bnd_el_nodes)
+    my_data_mngmt["out_p"].save_matrix("b_connectivity")
+
+    print()
+    print("Boundary Conditions")
+    my_data_mngmt["out_p"].set_data(my_grid.bnd_cond)
+    my_data_mngmt["out_p"].save_matrix("b_conditions")
+
+    return
+
+
+# -------------------------------------------------------
+# ------------------------------------------------------------------------------
+class Grid_Gen(object):
+
+    # ------------------------------------------------
+    def __init__(self):
+
+        self.elements_info()
+
+        self.nodes_info()
+
+        self.master_element_node_coordinates()
+
+        self.my_shape_functions = Shape_Functions()
+
+        self.el_node_connectn_mtrx = self.my_shape_functions.el_node_connectn_mtrx
+
+        self.grid_parameters_collection()
+
+        # self.test_sha_fun()
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def elements_info(self):
+
+        self.n_i_el = int(input("enter number of elements in x^1 direction: "))
+        self.n_j_el = int(input("enter number of elements in x^2 direction: "))
+
+        self.n_el = self.n_i_el * self.n_j_el
+        self.n_bnd_el = 2 * (self.n_i_el + self.n_j_el)
+
+        self.nodes_per_elmnt = 4  # this is very basic. The "4" indicates a bi-linear element
+        self.nodes_per_bnd_elmnt = 2  # Correspondingly, the "2" indicates a linear boundary element
+
+        self.el_nodes = np.zeros((self.n_el, self.nodes_per_elmnt), dtype=int)
+        self.bnd_el_nodes = np.zeros((self.n_bnd_el, self.nodes_per_bnd_elmnt + 1), dtype=int)
+        self.bnd_cond = np.zeros(self.n_bnd_el, dtype=int)
+
+        print(self.n_i_el, self.n_j_el, self.n_el, self.n_bnd_el)
+
+        self.numbr_coupled_nodes = 9  # this  and the following two lines are
+        # only valid for bilinear elements and one variable per node
+        self.bandwidth = 5 + 2 * self.n_j_el
+        self.semi_bandwidth = 3 + self.n_j_el
+
+        print(self.numbr_coupled_nodes, self.bandwidth, self.semi_bandwidth)
+
+        return
+        # ------------------------------------------------
+
+    # ------------------------------------------------
+    def nodes_info(self):
+
+        self.n_i_nodes = self.n_i_el + 1
+        self.n_j_nodes = self.n_j_el + 1
+        self.npoints = self.n_i_nodes * self.n_j_nodes
+
+        self.cart_coord = np.zeros((self.npoints, 2), dtype=float)  # two-dimensional version
+        self.eta = np.zeros(2, dtype=float)
+
+        print(self.n_i_nodes, self.n_j_nodes, self.npoints)
+
+        self.i_point = np.ones((self.npoints, self.numbr_coupled_nodes + 1), dtype=int) * (-1)
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def grid_parameters_collection(self):
+
+        self.grid_parameters = np.zeros(8, dtype=int)
+
+        self.grid_parameters[0] = self.n_el
+        self.grid_parameters[1] = self.n_bnd_el
+
+        self.grid_parameters[2] = self.nodes_per_elmnt
+        self.grid_parameters[3] = self.nodes_per_bnd_elmnt
+
+        self.grid_parameters[4] = self.numbr_coupled_nodes
+        self.grid_parameters[5] = self.bandwidth
+        self.grid_parameters[6] = self.semi_bandwidth
+
+        self.grid_parameters[7] = self.npoints
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def master_element_node_coordinates(self):
+
+        self.mastr_el_cart_coord = np.zeros((4, 2), dtype=float)  # two dimensional version
+
+        for i in range(4):
+            message = "Enter coordinate x_1 of master-elemnt node " + str(i + 1) + ": "
+            x_1 = float(input(message))
+
+            message = "Enter coordinate x_2 of master-elemnt node " + str(i + 1) + ": "
+            x_2 = float(input(message))
+
+            self.mastr_el_cart_coord[i][0] = x_1
+            self.mastr_el_cart_coord[i][1] = x_2
+
+        print(self.mastr_el_cart_coord)
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def test_sha_fun(self):
+
+        eta = self.eta
+
+        for i in range(4):
+            eta[0] = self.mastr_el_cart_coord[i][0]
+            eta[1] = self.mastr_el_cart_coord[i][1]
+
+            self.my_shape_functions.sha_fun(eta)
+
+            print(i, self.my_shape_functions.s_functions)
+
+        return
+
+        # ------------------------------------------------
+
+    # ------------------------------------------------
+    def form_cart_coord(self):
+
+        eta = self.eta
+
+        for i_node in range(self.n_i_nodes):
+
+            i_node_times_self_n_j_nodes = i_node * self.n_j_nodes
+
+            for j_node in range(self.n_j_nodes):
+                pnt = j_node + i_node_times_self_n_j_nodes
+
+                eta[0] = 2.0 * float(i_node) / float(self.n_i_nodes - 1.0) - 1.0
+                eta[1] = 2.0 * float(j_node) / float(self.n_j_nodes - 1.0) - 1.0
+
+                # print( pnt, eta )
+
+                self.my_shape_functions.x_coord(eta, self.mastr_el_cart_coord)
+
+                # print( pnt, self.my_shape_functions.node_coord )
+
+                self.cart_coord[pnt][0] = self.my_shape_functions.node_coord[0]
+                self.cart_coord[pnt][1] = self.my_shape_functions.node_coord[1]
+
+        # print( self.cart_coord )
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def form_grid_connection_array(self):
+
+        el_nodes = self.el_nodes
+        mtrx = self.el_node_connectn_mtrx
+
+        for i_el in range(self.n_i_el):
+
+            i_el_times_self_n_j_el = i_el * self.n_j_el
+
+            for j_el in range(self.n_j_el):
+
+                el = j_el + i_el_times_self_n_j_el
+
+                for i_el_node in range(self.nodes_per_elmnt):
+                    i_node = i_el + mtrx[i_el_node][0]
+                    j_node = j_el + mtrx[i_el_node][1]
+
+                    i_node_times_self_n_j_nodes = i_node * self.n_j_nodes
+
+                    pnt = j_node + i_node_times_self_n_j_nodes
+
+                    el_nodes[el][i_el_node] = pnt
+
+        self.el_nodes = el_nodes
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def form_boundary_connection_array(self):
+
+        el_nodes = self.el_nodes
+        bnd_el_nodes = self.bnd_el_nodes
+
+        bnd_el = 0
+
+        # Side I
+        for i_el in range(self.n_i_el):
+            i_el_times_self_n_j_el = i_el * self.n_j_el
+
+            j_el = 0
+
+            el = j_el + i_el_times_self_n_j_el
+
+            bnd_el_nodes[bnd_el][0] = el
+            bnd_el_nodes[bnd_el][1] = el_nodes[el][0]
+            bnd_el_nodes[bnd_el][2] = el_nodes[el][1]
+            bnd_el = bnd_el + 1
+
+        # Side II
+        i_el = self.n_i_el - 1
+
+        i_el_times_self_n_j_el = i_el * self.n_j_el
+
+        for j_el in range(self.n_j_el):
+            el = j_el + i_el_times_self_n_j_el
+
+            bnd_el_nodes[bnd_el][0] = el
+            bnd_el_nodes[bnd_el][1] = el_nodes[el][1]
+            bnd_el_nodes[bnd_el][2] = el_nodes[el][2]
+            bnd_el = bnd_el + 1
+
+        # Side III
+        for i_el_f in range(self.n_i_el):
+            i_el = self.n_i_el - 1 - i_el_f
+
+            i_el_times_self_n_j_el = i_el * self.n_j_el
+
+            j_el = self.n_j_el - 1
+
+            el = j_el + i_el_times_self_n_j_el
+
+            bnd_el_nodes[bnd_el][0] = el
+            bnd_el_nodes[bnd_el][1] = el_nodes[el][2]
+            bnd_el_nodes[bnd_el][2] = el_nodes[el][3]
+            bnd_el = bnd_el + 1
+
+        # Side IV
+        i_el = 0
+
+        i_el_times_self_n_j_el = i_el * self.n_j_el
+
+        for j_el_f in range(self.n_j_el):
+            j_el = self.n_j_el - 1 - j_el_f
+
+            el = j_el + i_el_times_self_n_j_el
+
+            bnd_el_nodes[bnd_el][0] = el
+            bnd_el_nodes[bnd_el][1] = el_nodes[el][3]
+            bnd_el_nodes[bnd_el][2] = el_nodes[el][0]
+            bnd_el = bnd_el + 1
+
+        self.bnd_el_nodes = bnd_el_nodes
+
+        print(self.bnd_el_nodes)
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def form_boundary_condition_array(self):
+
+        # this is a basic boundary condition function
+        # to be expanded with more interactivity and bc choices
+        # "1" signifies Dirichlet bc
+
+        number_of_bc_bnd_segments = int(input("Please, enter the number of boundary-condition boundary segments: "))
+
+        bc_bnd_segments = np.zeros((number_of_bc_bnd_segments, 4), dtype=int)
+
+        bc_bnd_segments[0][1] = 0
+        for i in range(number_of_bc_bnd_segments):
+
+            bc_bnd_segments[i][0] = i
+
+            if i > 0:
+                bc_bnd_segments[i][1] = bc_bnd_segments[i - 1][2] + 1
+
+            print("Total number of boundary elements: ", self.n_bnd_el, end=' ')
+            print("This is boundary segment: ", i + 1)
+            fin_bnd_el = int(input("for this segment, enter the number of the final boundary element:  "))
+            fin_bnd_el = fin_bnd_el - 1
+            print(
+                "boundary condition types and codes: Dirichlet -> 1, Zero Neumann -> 2, Non-Zero Neumann -> 3, Robin -> 4 ")
+            bound_cond = int(input("for this segment, enter the code of a desired boundary condition:  "))
+
+            bc_bnd_segments[i][2] = fin_bnd_el
+            bc_bnd_segments[i][3] = bound_cond
+
+        # print( bc_bnd_segments ) ; input()
+
+        for j in range(number_of_bc_bnd_segments):
+
+            i_initial = bc_bnd_segments[j][1]
+            i_final = bc_bnd_segments[j][2]
+
+            for i in range(i_initial, i_final + 1):
+                self.bnd_cond[i] = bc_bnd_segments[j][3]
+
+        # print( self.bnd_cond )  ; input()
+
+        """
+        for i in range( self.n_bnd_el ):
+
+            self.bnd_cond[ i ] = 1
+        """
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def form_node_connection_array(self):
+
+        for ie in range(self.n_el):
+
+            for i in range(self.nodes_per_elmnt):
+
+                i_n = self.el_nodes[ie][i]
+
+                for j in range(self.nodes_per_elmnt):
+
+                    j_n = self.el_nodes[ie][j]
+
+                    new_node = True
+                    for j_p in range(self.numbr_coupled_nodes):
+
+                        if (self.i_point[i_n][j_p] == j_n):
+                            new_node = False
+                            break
+
+                    if (new_node == True):
+                        j_p = 0
+                        while (self.i_point[i_n][j_p] != -1):
+                            j_p = j_p + 1
+
+                        self.i_point[i_n][j_p] = j_n
+
+        for i_n in range(self.npoints):
+
+            j_p = 0
+            while (self.i_point[i_n][j_p] != -1):
+                j_p = j_p + 1
+
+            self.i_point[i_n][self.numbr_coupled_nodes] = j_p
+
+        for i_n in range(self.npoints):
+
+            j_p = self.i_point[i_n][self.numbr_coupled_nodes]
+
+            a = []
+
+            for j in range(j_p):
+                a.append(self.i_point[i_n][j])
+
+            a = np.sort(a)
+
+            for j in range(j_p):
+                self.i_point[i_n][j] = a[j]
+
+            del a
+
+        print(self.i_point)
+
+        return
+    # ------------------------------------------------
+
+
+# ------------------------------------------------------------------------------
+
+
+# -------------------------------------------------------
+# -------------------------------------------------------
+class Shape_Functions(object):
+
+    # ------------------------------------------------
+    def __init__(self):
+        self.nodes = 4  # basic version with bilinear elements
+
+        self.s_functions = np.zeros(self.nodes, dtype=float)
+
+        self.node_coord = np.zeros(2, dtype=float)  # two-dimensional version
+
+        self.el_node_connectn_mtrx = np.zeros((self.nodes, 2), dtype=int)
+
+        self.set_up_connectn_mtrx()
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def sha_fun(self, eta):
+        s_f = self.s_functions
+
+        s_f[0] = (1.0 - eta[0]) * (1.0 - eta[1]) / 4.0
+        s_f[1] = (1.0 + eta[0]) * (1.0 - eta[1]) / 4.0
+        s_f[2] = (1.0 + eta[0]) * (1.0 + eta[1]) / 4.0
+        s_f[3] = (1.0 - eta[0]) * (1.0 + eta[1]) / 4.0
+
+        self.s_functions = s_f
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def x_coord(self, eta, master_coord):
+        self.sha_fun(eta)
+
+        x_1 = 0.0;
+        x_2 = 0.0
+
+        for i in range(self.nodes):
+            x_1 = x_1 + self.s_functions[i] * master_coord[i][0]
+            x_2 = x_2 + self.s_functions[i] * master_coord[i][1]
+
+        self.node_coord[0] = x_1
+        self.node_coord[1] = x_2
+
+        return
+
+    # ------------------------------------------------
+    # ------------------------------------------------
+    def set_up_connectn_mtrx(self):  # this is specific to a particular element. To be generalized
+
+        mtrx = self.el_node_connectn_mtrx
+
+        mtrx[0][0] = 0
+        mtrx[0][1] = 0
+
+        mtrx[1][0] = 1
+        mtrx[1][1] = 0
+
+        mtrx[2][0] = 1
+        mtrx[2][1] = 1
+
+        mtrx[3][0] = 0
+        mtrx[3][1] = 1
+
+        self.el_node_connectn_mtrx = mtrx
+
+        return
+    # ------------------------------------------------
+
+
+# -------------------------------------------------------
+# --------------------------------------------------------
+class Plot(object):
+
+    # ----------------------------------------------------
+    def __init__(self):
+
+        self.plt = plt
+
+        self.data = []
+
+        self.labels = ["Title", "h-label", "v-label"]
+
+        return
+
+    # ----------------------------------------------------
+    # ----------------------------------------------------
+    def set_data(self, labels):
+
+        self.labels = labels
+
+        return
+
+    # ----------------------------------------------------
+    # ----------------------------------------------------
+    def chart_it(self, el_nodes, cart_coord):
+
+        self.plt = plt
+
+        self.i_plot = True
+
+        self.number_of_functions = len(el_nodes)
+        self.number_of_nodes = len(el_nodes[0])
+
+        self.el_nodes = el_nodes
+        self.cart_coord = cart_coord
+
+        self.init_plot()
+        self.plot_it()
+
+        return
+
+    # ----------------------------------------------------
+    # ----------------------------------------------------
+    def data_preparation(self, el):
+
+        data_x = [];
+        data_y = []
+
+        pnt = self.el_nodes[el][0]
+
+        """
+        print( self.el_nodes )
+
+        print( el, pnt )
+        input()
+        """
+
+        x_0 = self.cart_coord[pnt][0]
+        y_0 = self.cart_coord[pnt][1]
+
+        for i_node in range(self.number_of_nodes):
+            pnt = self.el_nodes[el][i_node]
+
+            x = self.cart_coord[pnt][0]
+            y = self.cart_coord[pnt][1]
+
+            data_x.append(x)
+            data_y.append(y)
+
+        data_x.append(x_0)
+        data_y.append(y_0)
+
+        return (data_x, data_y)
+
+    # ----------------------------------------------------
+    # ----------------------------------------------------
+    def init_plot(self):
+
+        # https://matplotlib.org/stable/api/markers_api.html
+
+        """
+        ls = '-' 	solid    line style
+        ls = '--' 	dashed   line style
+        ls = '-.' 	dash-dot line style
+        ls = ':' 	dotted   line style
+        """
+
+        """
+        'r' 	Red 	
+        'g' 	Green 	
+        'b' 	Blue 	
+        'c' 	Cyan 	
+        'm' 	Magenta 	
+        'y' 	Yellow 	
+        'k' 	Black 	
+        'w' 	White
+        """
+
+        self.fig, self.ax = self.plt.subplots()
+
+        self.ax.grid(False)
+
+        self.fig.suptitle(self.labels[0])
+        self.ax.set_xlabel(self.labels[1]);
+        self.ax.set_ylabel(self.labels[2])
+
+        for i_funct in range(self.number_of_functions):
+            data_x, data_y = self.data_preparation(i_funct)
+
+            self.ax.plot(data_x, data_y, ls="-", linewidth=1, color='g', marker='o', ms=4, mec='b', mfc='b')
+
+        return
+
+    # ----------------------------------------------------
+    # ----------------------------------------------------
+    def plot_it(self):
+
+        self.plt.show()
+
+        return
+    # ----------------------------------------------------
+
+
+# -------------------------------------------------------
+# ---------------------------------------------------
+class Output_Data_File_Management(object):
+
+    # ---------------------------------------------------
+    def __init__(self):
+
+        self.mtrx = []
+        self.array = []
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def set_data(self, matrix):
+
+        self.array = matrix
+
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def save_matrix(self, file_name):
+
+        self.to_string()
+        self.store_matrix(file_name)
+
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def to_string(self):
+
+        self.mtrx = []
+
+        matrix = self.array
+
+        mtrx = self.mtrx
+
+        for i in range(len(matrix)):
+
+            row = matrix[i]
+
+            try:
+                string_row = str(row[0])
+
+                for j in range(1, len(row)):
+                    string_row = string_row + ' ' + str(row[j])
+
+            except:
+                string_row = str(row)
+
+            string_row = string_row + '\n'
+
+            mtrx.append(string_row)
+
+        self.mtrx = mtrx
+
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def store_matrix(self, file_name):
+
+        my_array = self.mtrx
+
+        # file_name = input( "Please, enter an output file name: ")
+        # print()
+        file_name = file_name + ".txt"
+
+        external_file = open(file_name, 'wt')
+
+        for row in my_array:
+            external_file.write(row)
+
+        external_file.close()
+
+        return
+    # ---------------------------------------------------
+
+
+# --------------------------------------------------------
+# ---------------------------------------------------
+class Input_Data_File_Management(object):
+
+    # ---------------------------------------------------
+    def __init__(self):
+
+        self.mtrx = []
+        self.array = []
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def get_data(self):
+
+        return (self.array)
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def retrieve_matrix(self, indx=0):
+
+        self.read_from_file()
+        self.to_matrix()
+
+        if (indx == 1 or indx == 2):  # 1 = integers, 2 = floating point numbers
+            self.to_numbers(indx)
+
+        if (len(self.array[0]) == 1):
+            self.to_vector()
+
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def read_from_file(self):
+
+        file_name = str(input("Please, enter an input file name: "))
+        print()
+
+        file_name = file_name + '.txt'
+        external_file = open(file_name, 'r')
+
+        mtrx = []
+
+        row = external_file.readline()
+        while (row != ''):
+            row = row.rstrip('\n')
+            mtrx.append(row)
+            row = external_file.readline()
+
+        external_file.close()
+
+        self.array = mtrx
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def to_matrix(self):
+
+        mtrx = self.array
+
+        for i in range(len(mtrx)):
+            mtrx[i] = mtrx[i].split()
+
+        self.array = mtrx
+
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def to_vector(self):
+
+        mtrx = self.array
+
+        for i in range(len(mtrx)):
+            mtrx[i] = mtrx[i][0]
+
+        self.array = mtrx
+
+        return
+
+    # ---------------------------------------------------
+    # ---------------------------------------------------
+    def to_numbers(self, indx):
+
+        mtrx = self.array
+
+        if (indx == 1):
+            func = int
+        else:
+            func = float
+
+        for i in range(len(mtrx)):
+
+            for j in range(len(mtrx[0])):
+                mtrx[i][j] = func(mtrx[i][j])
+
+        self.array = mtrx
+
+        return
+    # ---------------------------------------------------
+
+
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+main()
+# ------------------------------------------------------------------------------
+
+

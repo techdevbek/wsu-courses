@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+Question 2.\\
+Write about Geometric Brownian motion. Let's consider a general form Linear SDE (5) from part (a):\\
+(1) $d X_{t}=\left[a_{1}(t) X_{t}+a_{2}(t)\right] d t+\left[b_{1}(t) X_{t}+b_{2}(t)\right] d W_{t}$ Case 2:\\
+(2) $a_{2}(t)=b_{2}(t)=0$, then\\
+(1) becomes\\
+(3) $d X_{t}=a_{1}(t) \cdot X_{t} d t+b_{1}(t) X_{t} d W_{t}$ with the IC\\
+(4) $\quad X_{t}(0)=X_{0}$\\
+$(3)+(4)$ is called a Geometric Brownian motion. To come up with the "smart" change of variables we solve the "deterministic" part:\\
+(5) $d X_{t}=a_{1}(t) X_{t} d t$ (Deterministic part of (3), an ODE)
+
+
+\begin{align*}
+\frac{d x}{d t}=a_{1}(t) x \Rightarrow & \underbrace{\frac{d x}{x}=a_{1}(t) d t \Rightarrow}  \tag{6}\\
+& d[\ln (x)]=a_{1}(t) d t \Rightarrow Y_{t}=\ln \left(x_{t}\right) \\
+& d\left[y_{t}\right]=a_{1}(t) d t \Rightarrow \text { reasy"tointadate } \\
+& \int d\left(y_{t}\right)=\int a_{1}(t) d t \Rightarrow
+\end{align*}
+
+
+Lexis try the chary of variable in (6) by Ito Formula to find $d X_{t}$ :
+
+We need to apply I to', Formula gor case III:\\
+(7) $\quad Y_{t}=\ln \left(X_{t}\right), d X_{t}=\mu_{t} d t+\sigma_{t} d w_{t}$,\\
+(8) $d Y_{t}=\left[\varphi^{\prime}\left(x_{t}\right) \mu_{t}+\frac{1}{2} \varphi^{\prime \prime}\left(x_{t}\right) \sigma_{t}^{2}\right] d t+\varphi^{\prime}\left(x_{t}\right) \sigma_{t} d W_{t}$\\
+(9) $\varphi(x)=\ln \left(X_{t}\right), \varphi^{\prime}(x)=\frac{1}{x}, \varphi^{\prime \prime}(x)=-\frac{1}{x^{2}}$\\
+$d Y_{t}=\left[U^{\prime}\left(X_{t}\right) \cdot a_{1}(t) X_{t}+\frac{1}{2} \varphi^{\prime \prime}\left(X_{t}\right) \stackrel{\varepsilon_{1}^{2}(t) X_{t}^{2}}{\sigma t^{2}}\right] d t+$\\
+$+[\varphi^{\prime}\left(X_{t}\right) \underbrace{b_{1}(t) X_{t}}_{\sigma_{t}}] d W_{t} \quad ; \quad \Rightarrow u \operatorname{sing}$ (9)\\
+$d Y_{t}=\left[\frac{1}{X_{t}} a_{1}(t) X_{t}+\frac{1}{2} \cdot\left(-\frac{1}{X_{t}^{2}}\right) \cdot b_{1}^{2}(t) \cdot X_{t}^{2}\right] d t+\frac{1}{X_{t}} b_{1}(t) X_{t} d w_{t}$\\
+$(10) \Rightarrow d Y_{t}=\left[a_{1}(t)-\frac{1}{2} b_{1}^{2}(t)\right] d t+b_{1}(t) d W_{t}$\\
+(10) is a drift-diffusion SDE, which can be divedly integrated:\\
+$\int_{0}^{t} d Y_{\tau}=\int_{0}^{t}\left[a_{1}(\tau)-\frac{1}{2} b_{1}^{2}(\tau)\right] d \tau+\int_{0}^{t} b_{1}(\tau) d w_{\tau} \quad \Rightarrow$\\
+$Y_{t}-Y_{0}=\int_{0}^{t}\left(a_{1}(\tau)-\frac{1}{2} b_{1}^{2}(\tau)\right) d \tau+\int_{0}^{t} b_{1}(\tau) d w_{\tau} ; \quad Y_{t}=\ln \left(X_{t}\right)_{j} \Rightarrow$\\
+$\ln \left(x_{i}\right) \ln \left(x_{0}\right)+\int_{0}^{t}\left[a_{1}(\tau)-\frac{1}{2} b_{1}^{2}(\tau)\right] d \tau+\int_{0}^{t} b_{1}(\tau) d w_{\tau} \Rightarrow$\\
+(13) $X_{t}=X_{0} e^{\int_{0}^{t}\left[a_{1}(\tau)-\frac{b_{1}^{2}(\tau)}{2}\right] d \tau+\int_{0}^{t} b_{1}(\tau) d w_{\tau}}$\\
+is the solution to the homogeneous SDE in $(3)+(4)$ which is called Geometric Brownian motion\\
+In the case that $\left\{\begin{array}{l}a_{1}(t)=a=\text { cont } \\ b_{1}(t)=b=\text { const }\end{array}\right.$\\
+We have the standard (simple) Geometric. Brownian motion (GBM)\\
+(11) $d X_{t}=a X_{t} d t+b X_{t} d w_{t}$
+
+Which we have alp solved using the method of matching coefficients.\\
+(GBMappications for Last part 4.3. P3)\\
+(iii) Plotting several Stochastic paths:\\
+(iv) Statitics:
+
+Usyy (13),\\
+(31) How to find its statitices
+
+
+\end{document}

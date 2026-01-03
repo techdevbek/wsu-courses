@@ -1,0 +1,91 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+Stat 544.\\
+HWy\# 6.\\
+study the following SDE's. For each one:
+
+\begin{enumerate}
+  \item Write down the SDE with initial condition.
+\end{enumerate}
+
+Describe all therms, variables, \& parameters.\\
+2. Use any method to solve it.\\
+3. Choose a set of params a plot several stochastic paths on the same graph.\\
+4. Study the expectation, variance, auto corrolation o anything else you find interesting\\
+5. Do some Literature sealch to find one or two application of the SDE. Choose your favourite application and write one or too paragraph, about it.
+
+Quetion. Drift-diffusion\\
+(i) The gueral SDE is the form of\\
+(1) $\quad d X_{t}=\mu\left(X_{t}, t\right) d t+\sigma\left(X_{t}, t\right) d W_{t}$\\
+if $\int_{0}^{t} \mu\left(x_{\tau}, \tau\right) d \tau \quad \& \int_{0}^{t} \sigma\left(x_{t}, \tau\right) d w_{\tau}$ exists\\
+(2) $\quad X_{t}=X_{0}+\int_{0}^{t} \mu\left(X_{\tau}, \tau\right) d \tau+\int_{0}^{t} \sigma\left(X_{\tau}, \tau\right) d w_{\tau}$\\
+i) called strong sol-n of (1).
+
+For special cases of $\mu\left(X_{t}, t\right)$ \& $\sigma\left(X_{t}, t\right)$, we study some types of SDE: specificall $y$, Let\\
+(3) $\mu\left(x_{t}, t\right)=a_{1}(t) X_{t}+a_{2}(t)$\\
+(4) $\quad \sigma\left(x_{t}, t\right)=b_{1}(t) x_{t}+b_{2}(t)$
+
+Then we have a Linear SDE:\\
+(5) $\quad d X_{t}=\left[a_{1}(t) x_{t}+a_{2}(t)\right] d t+\left[b_{1}(t) \cdot X_{t}+b_{2}(t)\right] d W_{t}$
+
+Case 1: $\quad a_{1}(t)=b_{1}(t)=0$.\\
+Then (5) be comes\\
+(1)\\
+(6) $d X_{t}=a_{2}(t) d t+f_{2}(t) d W_{t}$ \& with the IC\\
+( $b^{\prime}$ ) $\quad x_{t}(0)=x_{0}$\\
+which is drift-difurion SDE.\\
+(ii) Integrating (6) $\int_{0}^{t}() d t$ gives the solution:\\
+$\underset{i}{i}$
+
+$$
+\begin{aligned}
+& \int_{0}^{t} d X_{t}=\int_{0}^{t} a_{2}(\tau) d \tau+\int_{0}^{t} b_{2}(\tau) d w_{\tau} \\
+& X_{t}=X_{0}+\int_{0}^{t} a_{2}(\tau) d \tau+\int_{0}^{t} b_{2}(\tau) d w_{\tau} .
+\end{aligned}
+$$
+
+(iii) Plotting several stochastic paths:\\
+© (iv) Statistics: Using (7):\\
+$\left.\sum_{i}^{\infty}(8) E X_{t}\right]=E\left[X_{0}+\int_{0}^{t} a_{2}(\tau) d \tau+\int_{0}^{t} b_{2}(\tau) d w_{\tau}\right]$
+
+$$
+\begin{aligned}
+& E\left(x_{t}\right)=E\left(x_{0}\right)+E\left[\int_{0}^{t} a_{2}(\tau) d \tau\right. \\
+& E(\#)=\#+E\left[\int_{0}^{t} f_{0}(\tau) d \omega_{\tau}\right] \\
+&=x_{0}+\int_{0}^{t} a_{2}(\tau) d \tau
+\end{aligned}
+$$
+
+(9)\\
+$E\left[X_{t}\right]=X_{0}+\int_{0}^{t} a_{2}(\tau) d \tau$\\
+(2)
+
+\section*{by (7)}
+$$
+\begin{aligned}
+& \operatorname{Var}\left(x_{t}\right) \stackrel{\downarrow}{=} \\
+& =\operatorname{Var}\left[x_{0}+\int_{0}^{t} a_{2}(\tau) d \tau+\int_{0}^{t} b_{2}(\tau) d w_{\tau}\right] \\
+& =\operatorname{Var}\left[\int_{0}^{t} b_{2}(\tau) d w_{\tau}\right] \quad=0 \quad b_{\gamma} \\
+& =\left\{\left[\int_{0}^{t} b_{2}(\tau) d w_{\tau}\right]^{2}\right\}-\left\{E\left[\int_{0}^{t} b_{2}(\tau) d w_{\tau}\right]\right\}^{2}
+\end{aligned}
+$$
+
+(74) wher $=E\left[\int_{t}^{t} b_{\#}^{2}(\tau) d \tau\right]-\underbrace{\{0\}^{2}}_{=0}=(E(\#)=\#)$
+
+$$
+=\int_{0}^{t} b_{2}^{2}(\tau) d \tau \quad=0
+$$
+
+(10) $\operatorname{Var}\left(x_{t}\right)=\int_{0}^{t} b_{2}^{2}(\tau) d \tau$\\
+(35) Auto Corrolation $\left(x_{t}\right)=$
+
+
+\end{document}

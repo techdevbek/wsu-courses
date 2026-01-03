@@ -1,0 +1,188 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+Questions.\\
+Write about Ornstein-Uhlenbeck (OU) process.\\
+Sol-n\\
+Consider the General formof Linear SDE (5) from Q1:\\
+(1) $d X_{t}=\left[\frac{-a=\text { const }}{\left[a_{1}(t) X_{t}+\stackrel{0}{a_{2}(t)}\right] d t+\left[\begin{array}{l}0 \\ {\left[b_{1}(t) X_{t}+b_{2}(t)\right]}\end{array} d W_{t}\right.}\right.$\\
+if\\
+(2) $a_{1}(t)=-a=$ cont $, a_{2}(t)=0, b_{1}(t)=0, b_{2}(t)=b=$ const,\\
+then we have\\
+Ornsfein - Uhlenbeck equation:\\
+(3) $d X_{t}=-a X_{t} d t+b d W_{t}$ with the IC:\\
+(4) $\quad X_{t}(0)=X_{0}$
+
+Tote (3) is a mon-homogéneur SDE, to we hed integrating factor as follows:\\
+(5) $\quad M_{t}=e^{a t}$, then change of variable\\
+for (3) is\\
+(6) $\quad Y_{t}=X_{t} M_{t}$, so
+
+
+\begin{equation*}
+\varphi\left(X_{t}, t\right)=X_{t} \cdot M_{t}=X_{t} \cdot e^{a t} \tag{1}
+\end{equation*}
+
+
+(7) $\quad \varphi\left(x_{t}, t\right)=x_{t} \cdot e^{a t} \quad$ requires usage of
+
+Ito's formula of case iv:
+
+
+\begin{align*}
+& Y_{t}=\varphi\left(X_{t, t}\right)=X_{t \cdot} e^{a t} \text { with }  \tag{3}\\
+& d X_{t}=\underbrace{-a X_{t}}_{\mu_{t}} d t+\underbrace{b}_{\sigma t} d w_{t}
+\end{align*}
+
+
+(8) $d Y_{t}=\left[\frac{\partial \varphi\left(x_{t, t}\right)}{\partial t}+\mu_{t} \frac{\partial \varphi\left(x_{t, t}\right)}{\partial x}+\frac{1}{2} \sigma_{t}^{2} \frac{\partial^{2} \varphi\left(x_{t} t\right)}{\partial x^{2}}\right] d t$
+
+$$
++\sigma_{t} \frac{\partial \varphi\left(x_{t, t}\right)}{\partial x} d W_{t}
+$$
+
+so we need\\
+$\varphi(x, t)=x \cdot e^{a t}$,\\
+$\frac{\partial \varphi(x, t)}{\partial t}=\frac{\partial}{\partial t}\left(x \cdot e^{a t}\right)=a x e^{a t} ;$\\
+(9) $\left\{\begin{array}{l}\frac{\partial \varphi(x, t)}{\partial x}=\frac{\partial}{\partial x}\left(x e^{a t}\right)=e^{a t} \\ \frac{\partial \varphi^{2}(x, t)}{\partial x^{2}}=\frac{\partial}{\partial x}\left(e^{a t}\right)=0 ;\end{array}\right.$
+
+Evaluating expressions (a) $x=X_{t}$ in (9) \& plugging back into (8) gives
+
+$$
+\begin{aligned}
+d Y_{t}=d\left(X_{t} e^{a t}\right) & =\left[a X_{t} e^{a t}+\left(-a X_{t}\right) \cdot e^{a t}+\frac{1}{2} \cdot(t)^{2} \cdot 0\right] d t+ \\
+& +(b) \cdot e^{a t} d W_{t} \Rightarrow
+\end{aligned}
+$$
+
+(10) $d Y_{t}=b e^{a t} d W_{t}$ which can be directly integrated:
+
+$$
+\int_{0}^{t} d V_{\tau}=\int_{0}^{t} b e^{a \tau} d w_{\tau} \Rightarrow
+$$
+
+(11) $\quad Y_{t}=Y_{0}+\int_{0}^{t} b e^{a \tau} d W_{\tau}$, but by
+
+
+\begin{equation*}
+X_{t} e^{a t}=X_{0} \cdot e_{=1}^{0}+\int_{0}^{t} b e^{a \tau} d W_{\tau} \quad * e^{-a t} o f B S: \tag{3}
+\end{equation*}
+
+
+(12') $X_{t}=X_{0} e^{-a t}+e^{-a t} \cdot \int_{0}^{t} b e^{a \tau} d w_{t}$ or\\
+(12) $x_{t}=X_{0} e^{-a t}+\int_{0}^{t} b e^{a(\tau-t)} d w_{\tau}$\\
+is the\\
+solon for OU eq-n in $(3)+(4)$.\\
+(iii) Plotting several statistic paths (wonking with Zach on Wed (Thursday)\\
+(iv) Statitics
+
+$$
+\begin{aligned}
+& E\left[x_{t}\right]=b^{b y(12)} E\left[x_{0} e^{-a t}+\int_{0}^{t} b e^{a(\tau-t)} d W_{\tau}\right] \\
+& =E\left[X_{0} e^{-a t}\right]+E\left[\int_{0}^{t} b e^{a(\tau-t)^{0}} d W_{\varepsilon}\right] \\
+& E(\#)=\# \text { q } E[\text { Itô Integral }]=0 \\
+& =X_{0} e^{-a t} \\
+& \text { (13) } E\left[X_{t}\right]=x_{0} e^{-a t}>0 \\
+& \operatorname{Var}\left(X_{t}\right)=\operatorname{Var}\left(X_{0} e^{-a t}\right)+\operatorname{Var}\left[\int_{0}^{t} b e^{a(\tau-t)} d w_{c}\right] \\
+& =\operatorname{Var}\left[\int_{0}^{t} b e^{a(\tau-t)} d w_{t}\right]= \\
+& =E\left[\left(\int_{0}^{t} b e^{a(\tau-t)} d w_{\tau}\right)^{2}\right]-\{[\underbrace{\left[\int_{0}^{t} b_{0}^{a(\tau-t)} d w_{\tau}\right.}_{=0 \text { betry }}]^{2}\}^{2} \\
+& \text { Ifio Isometry } \\
+& =E\left[\int_{(t)}^{t}\left(b e^{a(\tau-t)}\right)^{2} d \tau\right]=
+\end{aligned}
+$$
+
+(?1)\\
+$=\int_{0}^{t} E\left(b^{2} e^{2 a(\tau-t)}\right) d \tau$\\
+$=b^{2} \frac{1-e^{-2 a t}}{2 a}$,\\
+i. $e$,\\
+(14)
+
+$$
+\operatorname{Var}\left(X_{t}\right)=b^{2} \cdot \frac{1-e}{2 a}
+$$
+
+rote that os $t \rightarrow \infty$\\
+$E\left(X_{t}\right) \rightarrow 0 \quad \& \quad \operatorname{Var}\left(X_{t}\right) \rightarrow \frac{b^{2}}{2 a}=$ const.\\
+(15) Auto Corrolation $\left(X_{t}\right)=$
+
+22\\
+$\downarrow$\\
+How to\\
+calculate\\
+statisty\\
+of GM\\
+(4)\\
+(15)
+
+$$
+\begin{aligned}
+& X_{t}=g(t)+b e^{-a t} \cdot Y_{t}, \\
+& \operatorname{Cov}\left(X_{t}, X_{s}\right)=\operatorname{cov}\left[b e^{-a t} Y_{t},\left(b e^{-a s}\right) Y_{s}\right] \\
+& =b^{2} e^{-a t} \cdot e^{-a s} \operatorname{cov}\left(Y_{t}, Y_{s}\right), \text { and }
+\end{aligned}
+$$
+
+jo
+
+By (12)\\
+$X_{t}=\underbrace{X_{0} e^{-a t}}_{g(t)}+b e^{-a t} \underbrace{\int_{0}^{t} e^{a \tau} d W_{\tau}}_{Y_{t}, 1_{0}}, ~ b t$
+
+WLOG, let $s<t$, ther
+
+$$
+\begin{aligned}
+& \operatorname{Cov}\left(X_{s}, X_{t}\right)=b^{2} e^{-a(s+t)} \cdot \operatorname{Cov}\left(Y_{s}, Y_{t}\right)_{q} \\
+& \operatorname{cov}\left(Y_{p}, Y_{t}\right)=\left[\int_{0}^{3} e^{a \tau} d w_{\tau}, \int_{0}^{t} e^{a \tau} d w_{\tau}\right] \\
+& =E\left[Y_{1}, Y_{t}\right]-E\left[Y_{1}\right] \cdot E\left[Y_{t}\right]
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+& -E\left[\int_{0}^{a} e_{0}^{a \tau} d w_{\tau}\right] \cdot E\left[\int_{0}^{0} e^{a \tau} d w_{\tau}\right]
+\end{aligned}
+$$
+
+a) $\quad 1<t$
+
+$$
+\begin{aligned}
+& \left.=E\left[\int_{0}^{1} e^{a \tau} d w_{\tau} \cdot \int_{0}^{1} e^{a \tau} d w_{\tau}+\int_{1}^{t} e^{a \tau} d w_{\tau}\right]\right]-0 \\
+& =E\left[\left(\int_{0}^{1} e^{a \tau} \frac{d w_{\tau}}{=d \tau}\right)^{2}\right]+E\left[\int_{0}^{1} e^{a \tau} d w_{\tau} \cdot \int_{0}^{t} e^{a \tau} d w_{\tau}\right] \\
+& =E\left[\int_{0}^{1} e^{2 a \tau} d \tau\right]+0 \quad(? 3) w h y \\
+& =\frac{e^{2 a}}{2 a}\left[\left.e^{\tau}\right|_{\tau=1} ^{\tau=1}\right]=\frac{e^{2 a}}{2 a} \cdot\left[e^{p}-1\right] \cdot S_{0}
+\end{aligned}
+$$
+
+Itô\\
+(17) $\operatorname{Cov}\left(Y_{f}, Y_{t}\right)=\frac{e^{2 a}}{2 a}\left[e^{s}-1\right]$.
+
+Pluggiy (17) back to (16):
+
+$$
+\begin{aligned}
+\operatorname{Cov}\left(X_{1}, X_{t}\right) & =b^{2} e^{-a(1+t)} \cdot \operatorname{Cov}\left(Y_{1}, Y_{t}\right) \\
+& =b^{2} \cdot e^{-a(1+t)} \cdot e^{2 a}\left[e^{1}-1\right] \\
+& =\frac{b^{2}}{2 a} e^{a(-1-t+2)^{2 a}} \cdot\left[e^{1}-1\right], \Rightarrow
+\end{aligned}
+$$
+
+(18)\\
+(7) assuming $s<t$.\\
+in General, presentiy with min $\{1, t\}$ :\\
+(19) $\operatorname{Cov}\left(X_{1}, X_{t}\right)=b^{2} \cdot e^{a(-1-t+2} \cdot\left[e^{\sin \{1, t\}}-1\right]$
+
+Note as $f \rightarrow \infty$\\
+(2d) $\operatorname{Cov}\left(X_{3}, X_{t}\right)=\frac{b^{2}}{2 a} e^{|t-1|}$\\
+a) devired.\\
+(8)
+
+
+\end{document}

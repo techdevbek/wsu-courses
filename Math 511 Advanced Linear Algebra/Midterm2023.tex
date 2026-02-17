@@ -1,0 +1,121 @@
+\documentclass [11pt]{article}
+\usepackage{latexsym,amsfonts}
+
+\setlength{\oddsidemargin}{.1cm}
+\setlength{\evensidemargin}{.1cm}
+\setlength{\topmargin}{-1cm}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+\renewcommand{\baselinestretch}{1.05}
+
+\newcommand{\rank}{\mbox{\rm rank\,}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.1in}
+
+\pagestyle{empty}
+
+\begin{document}
+\hspace*{2.5in} NAME \ \ \ \ \ ..........................................\\
+\hspace*{2.5in} ID \ \ \ \ \ \ \ \ \ \ \ ............................
+\begin{center}
+{\large\bf Math 511 - Midterm Examination - March 2023} \\ 
+\underline{Instructor:} Michael Tsatsomeros
+\end{center}
+
+INSTRUCTIONS:
+
+\begin{itemize}
+\item 
+This take-home exam has 5 problems worth 100 points.
+\item
+For full credit, it is necessary to show your work and provide your reasoning.
+\item
+You must work on your own and not consult other individuals.
+\item
+You may {\bf only} consult our textbook and our lecture notes while preparing your answers.
+\item
+Any questions during the exam should only be addressed to the instructor 
+via email (tsat@wsu.edu).
+\item 
+Provide your answers in a PDF file by emailing it to tsat@wsu.edu by the set deadline: 
+\underline{Monday, March 13, 5 pm}. For your convenience, the LaTeX file is also provided in 
+case you plan to typeset your answers.
+\item 
+Please name the file you email\ \ {\bf YourLastName.pdf}
+\\ \\
+\item
+Checking the box below constitutes your pledge that you will follow the specific instructions above and that the answers provided represent your own work, without the use of any unpermitted aids or resources.
+\end{itemize}
+
+\begin{center}
+{\Huge $ \Box$}\ \ \
+\end{center}
+
+
+\newpage
+
+
+\underline{\bf Problem 1} [20] \ 
+Let $\lambda$ and $\mu$ be distinct eigenvalues of $A\in M_n$ with (right) eigenvector $x$
+corresponding to $\lambda$ and {\bf left} eigenvector $y$ corresponding to $\mu$. 
+
+{\bf (a)} Show that $x$ and $y$ are necessarily orthogonal to each other.
+\vspace{2.75in}\\
+{\bf (b)} Let $B=A+xy^*$. Prove that $\lambda$ and $\mu$ are also eigenvalues of $B$. What are corresponding eigenvectors?
+\vspace{2in}\\
+{\bf (c)} Let $C=A+zy^*$ for some $z\in\CC^n$. Show that $\mu+y^*z$ is an eigenvalue of $C$. 
+
+
+\newpage
+
+\underline{\bf Problem 2} [20]\ 
+ Let $A, B\in M_n$ be two normal matrices. Show that $A$ and $B$ are
+ unitarily equivalent (i.e., similar by a unitary matrix) if and only if 
+ $A$ and $B$ have the same characteristic polynomial.
+
+\newpage
+
+\underline{\bf Problem 3} [20]\
+Let $A\in M_n$ be a nilpotent matrix, i.e., $A^k=0$ for some positive integer $k$.
+
+{\bf (a)} Show that all the eigenvalues of $A$ are equal to zero.
+\vspace{2.5in}\\
+{\bf (b)} Show that if  algebraic and geometric multiplicities of the eigenvalue $0$ coincide, 
+then $A$ the equal to the zero matrix.
+\vspace{2.5in}\\
+{\bf (c)}\ If possible, find a $3\times 3$ nilpotent matrix \underline{all} of whose entries are nonzero.
+
+
+\newpage
+
+\underline{\bf Problem 4} [20]\
+\ Let $A\in M_n$ with spectral radius
+$$\rho(A)=\max\{|\lambda|\;:\;\lambda\in\sigma(A)\}\;<\; 1.$$ 
+
+{\bf (a)} Explain why $I-A$ is an invertible matrix.
+\vspace{3in}\\
+{\bf (b)} Show that $\displaystyle{(I-A)^{-1}=\sum_{k=0}^{\infty}\, A^k}$.\\
+(Hint: Compute $\displaystyle{(I-A)\,\sum_{k=0}^{m}\, A^k}$ and consider
+its limit as $m\rightarrow\infty$.)
+ 
+
+\newpage
+
+\underline{\bf Problem 5} [20]\
+Consider a matrix $A\in M_8$ whose Jordan canonical form is 
+$$J(A)=J_1(0)\oplus J_1(3)\oplus J_2(1)\oplus J_2(1)\oplus J_2(0),$$
+where $J_k(\lambda)$ denotes the $k\times k$ Jordan block with eigenvalue $\lambda$.
+
+{\bf (a)} What are the eigenvalues of $A$?
+\vspace{.5in}\\
+{\bf (b)} For each distinct eigenvalue of $A$, find its algebraic multiplicity and geometric multiplicity. 
+\vspace{.75in}\\
+{\bf (c)} What is the rank of $A$?
+\vspace{.75in}\\
+{\bf (d)} Find the Jordan canonical form of $A-I$.
+\vspace{.75in}\\
+{\bf (e)} Find the Jordan canonical form of $(A-I)^2$.
+\end{document}

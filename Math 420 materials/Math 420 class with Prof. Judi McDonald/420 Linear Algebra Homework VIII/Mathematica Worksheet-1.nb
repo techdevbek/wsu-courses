@@ -1,0 +1,1232 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     57677,       1224]
+NotebookOptionsPosition[     55667,       1189]
+NotebookOutlinePosition[     56109,       1206]
+CellTagsIndexPosition[     56066,       1203]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "In each of the interactive figures below, we are investigating the \
+eigenvalues and eigenvectors of a linear transformation ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "956bfe0b-8349-4858-b5da-d36f8e3eee79"],
+ ".  In each case, we will assume that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", "(", "x", ")"}], "=", 
+    RowBox[{"A", "\[VeryThinSpace]", "x"}]}], TraditionalForm]],
+  ExpressionUUID->"1d6dfab3-ed4c-4362-a563-3db552b36391"],
+ " for the given matrix ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", ".", " "}], TraditionalForm]],ExpressionUUID->
+  "8c3821d2-ac07-4b35-b579-0cdca3b0cad6"],
+ " In the first set up the figures I have set up the matrices so they have \
+\[OpenCurlyDoubleQuote]nice\[CloseCurlyDoubleQuote] integer eigenvalues and \
+eigenvectors.  In the second set of figures I have set up, the matrices \
+themselves have \[OpenCurlyDoubleQuote]nice\[CloseCurlyDoubleQuote] integer \
+entries, but the eigenvalues and eigenvectors are rounded to two decimal \
+places.  "
+}], "Text",
+ CellChangeTimes->{{3.8751292670407343`*^9, 3.875129356189418*^9}, {
+  3.8751293871236467`*^9, 3.8751294270774527`*^9}, {3.8751296154736433`*^9, 
+  3.875129690597286*^9}, {3.906464009408283*^9, 3.906464176898058*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal",ExpressionUUID->"2b718192-befc-49e7-be89-59a267391d84"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The following interactive figures are directly \
+related to next week\[CloseCurlyQuote]s homework.",
+ FontFamily->"Times New Roman",
+ FontSize->16,
+ FontWeight->"Normal",
+ FontColor->RGBColor[0, 0, 1]]], "Subsubsection",
+ CellChangeTimes->{{3.906463272727418*^9, 
+  3.9064632891404886`*^9}},ExpressionUUID->"280a252b-d45a-48c4-bedf-\
+57889b8ebcf9"],
+
+Cell["\<\
+1. In the interactive figure below, click the \[OpenCurlyDoubleQuote]singular\
+\[CloseCurlyDoubleQuote] or \[OpenCurlyDoubleQuote]nonsingular\
+\[CloseCurlyDoubleQuote] button each several times to generate several \
+singular and nonsingular matrices. Also adjust the size of the matrix to see \
+if size has any effect. When you get a singular matrix, do you notice \
+anything special about its eigenvalues, eigenvectors, nullspace, and range?\
+\>", "Text",
+ CellChangeTimes->{{3.906462911574835*^9, 3.906462927664637*^9}, 
+   3.9064629637573967`*^9, {3.9064629975533752`*^9, 3.906463016499804*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal",ExpressionUUID->"229a5f29-f8aa-4e38-996a-10933936731d"],
+
+Cell[TextData[Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generateNewMatrix$$ = 
+    False, $CellContext`n$$ = 4, $CellContext`nLast$$ = 
+    4, $CellContext`Q$$ = {{1, 6, 4, 1}, {9, -2, -6, 7}, {-4, 7, 8, 8}, {-6, 
+    4, 0, 5}}, $CellContext`singular$$ = False, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 4, 
+       Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 3, 5, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "singular", {
+         FontFamily -> "Times", 14, Italic}], {$CellContext`singular$$ = 
+         True, $CellContext`generateNewMatrix$$ = True}]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`singular$$], True}, 0}, {
+      Hold[
+       Button[
+        Style[
+        "nonsingular", {
+         FontFamily -> "Times", 14, Italic}], {$CellContext`singular$$ = 
+         False, $CellContext`generateNewMatrix$$ = True}]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`Q$$], {{3, 2, 2}, {-2, 4, 1}, {1, 5, 3}}}, 0}}, 
+    Typeset`size$$ = {668., {264.37255859375, 273.62744140625}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generateNewMatrix$$ = 
+        False, $CellContext`n$$ = 4, $CellContext`nLast$$ = 
+        3, $CellContext`Q$$ = {{3, 2, 2}, {-2, 4, 1}, {1, 5, 
+         3}}, $CellContext`singular$$ = True}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`u$, $CellContext`LL$, $CellContext`L$, \
+$CellContext`B$, $CellContext`A$, $CellContext`ls$, $CellContext`ln$, \
+$CellContext`rr$, $CellContext`ns$, $CellContext`ZZ$}, If[
+          
+          Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`Q$$ = 
+           RandomInteger[{-9, 
+             9}, {$CellContext`n$$, $CellContext`n$$}], \
+$CellContext`generateNewMatrix$$ = 
+           False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+        If[Det[$CellContext`Q$$] == 0, 
+          "Change of basis matrix is singular. Choose a new matrix", \
+$CellContext`m = $CellContext`n$$; 
+          If[$CellContext`singular$$, $CellContext`L$ = {
+               RandomInteger[{-5, 5}], 
+               RandomInteger[{-5, 5}], 
+               RandomInteger[{-5, 5}], 
+               RandomInteger[{-5, 5}], 
+               RandomInteger[{-5, 5}]}; Part[$CellContext`L$, 
+               RandomInteger[{1, 3}]] = 0; 
+            Null, $CellContext`L$ = {
+             RandomInteger[{1, 5}] (-1)^RandomInteger[{0, 1}], 
+              RandomInteger[{1, 5}] (-1)^RandomInteger[{0, 1}], 
+              RandomInteger[{1, 5}] (-1)^RandomInteger[{0, 1}], 
+              RandomInteger[{1, 5}], 
+              RandomInteger[{1, 5}] (-1)^
+               RandomInteger[{0, 1}]}]; $CellContext`u$ = 
+           Span[1, $CellContext`n$$]; $CellContext`LL$ = 
+           Part[$CellContext`L$, $CellContext`u$]; $CellContext`k = \
+$CellContext`n$$; If[$CellContext`n$$ == 2, $CellContext`EE = {
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 1]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 2]}]]}]; 
+          If[$CellContext`n$$ == 3, $CellContext`EE = {
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 1]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 2]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 3]}]]}]; 
+          If[$CellContext`n$$ == 4, $CellContext`EE = {
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 1]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 2]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 3]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 4]}]]}]; 
+          If[$CellContext`n$$ == 5, $CellContext`EE = {
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 1]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 2]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 3]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 4]}]], 
+              TraditionalForm[
+               Transpose[{
+                 Part[$CellContext`Q$$, All, 5]}]]}]; $CellContext`B$ = 
+           DiagonalMatrix[$CellContext`LL$]; $CellContext`M = 
+           Part[$CellContext`B$, $CellContext`u$, $CellContext`u$]; \
+$CellContext`A$ = Dot[$CellContext`Q$$, $CellContext`M, 
+             Inverse[$CellContext`Q$$]]; 
+          If[Det[$CellContext`A$] == 
+            0, {$CellContext`ans = 
+             "yes", $CellContext`ls$ = {}; $CellContext`ln$ = {}; Do[
+               If[Part[$CellContext`L$, $CellContext`j] == 0, 
+                AppendTo[$CellContext`ls$, $CellContext`j], 
+                AppendTo[$CellContext`ln$, $CellContext`j]], {$CellContext`j, 
+                1, $CellContext`k}], $CellContext`rr$ = Grid[{{"span", 
+                 Part[$CellContext`EE, $CellContext`ln$]}}], $CellContext`ns$ = 
+             Grid[{{"span", 
+                 
+                 Part[$CellContext`EE, $CellContext`ls$]}}]}, \
+{$CellContext`ans = "no", $CellContext`rr$ = 
+             "\[DoubleStruckCapitalR]"^$CellContext`n$$, $CellContext`ns$ = 
+             Grid[{{"{", 
+                 TraditionalForm[
+                  ConstantArray[0, {$CellContext`k, 1}]], "}"}}]}]; 
+          Grid[{{Null, "\!\(TraditionalForm\`A\) "}, {"Matrix:", 
+              TraditionalForm[$CellContext`A$]}, {
+             "Singular: ", $CellContext`ans, 
+              "Eigenvalues: ", $CellContext`LL$}, {
+             Null, Null, "Eigenvectors: ", $CellContext`EE}, {
+             "Null Space:", $CellContext`ns$, "Range:", $CellContext`rr$}}, 
+            Spacings -> {0, 2}]]], "Specifications" :> {{{$CellContext`n$$, 4, 
+          Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 3, 
+         5, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "singular", {
+          FontFamily -> "Times", 14, Italic}], {$CellContext`singular$$ = 
+          True, $CellContext`generateNewMatrix$$ = 
+          True}], {{$CellContext`singular$$, True}, 0, ControlType -> None}, 
+        Button[
+         Style[
+         "nonsingular", {
+          FontFamily -> "Times", 14, Italic}], {$CellContext`singular$$ = 
+          False, $CellContext`generateNewMatrix$$ = 
+          True}], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`Q$$, {{3, 2, 2}, {-2, 4, 1}, {1, 5, 3}}}, 0, 
+         ControlType -> None}}, 
+      "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "What do you notice about the eigenvalues, eigenvectors, null \
+space, and range when \!\(\*Cell[TextData[Cell[BoxData[FormBox[\"A\", \
+TraditionalForm]]]]]\) is singular?", {FontFamily -> "Times", 16}]}, 
+        ControlPlacement -> Bottom, ContentSize -> {750, 450}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1151., {439.87255859375, 449.12744140625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`u = 
+       Span[1, 4], $CellContext`LL = {1, 5, 5, -3}, $CellContext`L = {1, 5, 
+        5, -3, 4}, $CellContext`B = {{0, 0, 0, 0}, {0, -2, 0, 0}, {0, 0, -4, 
+        0}, {0, 0, 
+        0, -2}}, $CellContext`A = {{(-1420)/701, (-1176)/701, 1416/
+          701, (-200)/701}, {(-3805)/1402, (-1388)/701, (-818)/701, 670/
+          701}, {(-825)/1402, (-312)/701, (-1198)/701, 90/701}, {
+         683/701, 226/701, 14/701, (-1602)/701}}, $CellContext`rr = 
+       "\[DoubleStruckCapitalR]", $CellContext`ns = {0}, $CellContext`m = 
+       4, $CellContext`k = 4, $CellContext`EE = {
+         TraditionalForm[{{9}, {-7}, {0}, {5}}], 
+         TraditionalForm[{{9}, {-4}, {7}, {1}}], 
+         TraditionalForm[{{-5}, {-9}, {8}, {-8}}], 
+         TraditionalForm[{{5}, {9}, {0}, {3}}]}, $CellContext`M = {{5, 0, 0, 
+        0}, {0, 0, 0, 0}, {0, 0, -2, 0}, {0, 0, 0, 5}}, $CellContext`ans = 
+       "yes"}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8870393104256053`*^9, 3.906461482650407*^9, 3.9064620107726755`*^9, 
+   3.906462085013239*^9, {3.906462137944854*^9, 3.9064621535068274`*^9}, 
+   3.906462246697316*^9, 3.9064622844789276`*^9, 3.9064625816523447`*^9, 
+   3.9064627118653264`*^9, 3.906462754656583*^9, 3.906462792733427*^9},
+ FontFamily->"Times New Roman",
+ FontWeight->
+  "Normal",ExpressionUUID->"e9e2542c-5fe7-4011-bdcc-d13c6508ac6b"]], "Text",
+ CellChangeTimes->{{3.906462911574835*^9, 3.906462927664637*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal",ExpressionUUID->"a2561784-b4eb-4caa-a981-924742577894"],
+
+Cell[TextData[{
+ "2. What relationships do you see between the eigenvalues and eigenvectors \
+of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "f0bb37b4-a066-441b-a5e7-e69d71af5df5"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["A", 
+    RowBox[{"-", "1"}]], TraditionalForm]],ExpressionUUID->
+  "7d07ca1d-d0c3-46b2-acf2-04f03f791aea"],
+ "? Use the buttons at the bottom of the interactive figure to change the \
+size of your matrix, and to look at several examples. "
+}], "Text",
+ CellChangeTimes->{{3.8751294526626253`*^9, 3.8751295278257027`*^9}, {
+  3.8751314555071545`*^9, 3.875131458848021*^9}, {3.875132075652213*^9, 
+  3.8751320761096516`*^9}, {3.9064629551444197`*^9, 3.9064629557338085`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal",ExpressionUUID->"da5ebe3c-f2f8-4932-bc75-cd23c2a4941d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generateNewMatrix$$ = 
+    False, $CellContext`n$$ = 3, $CellContext`nLast$$ = 
+    3, $CellContext`Q$$ = {{3, 2, 2}, {-2, 4, 1}, {1, 5, 3}}, Typeset`show$$ =
+     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 3, 
+       Style["size of matrices", {FontFamily -> "Times", 12, Italic}]}, 2, 4, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "new matrices", {
+         FontFamily -> "Times", 12, 
+          Italic}], $CellContext`generateNewMatrix$$ = True]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`Q$$], {{3, 2, 2}, {-2, 4, 1}, {1, 5, 3}}}, 0}}, 
+    Typeset`size$$ = {507., {177.9869384765625, 188.0130615234375}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generateNewMatrix$$ = 
+        False, $CellContext`n$$ = 3, $CellContext`nLast$$ = 
+        3, $CellContext`Q$$ = {{3, 2, 2}, {-2, 4, 1}, {1, 5, 3}}}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`B$, $CellContext`M$, $CellContext`A$, \
+$CellContext`m$, $CellContext`L$, $CellContext`u$, $CellContext`LL$, \
+$CellContext`II$, $CellContext`EE$}, If[
+          
+          Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`Q$$ = 
+           RandomInteger[{-9, 
+             9}, {$CellContext`n$$, $CellContext`n$$}], \
+$CellContext`generateNewMatrix$$ = 
+           False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+        If[Det[$CellContext`Q$$] == 0, 
+          "Matrix is not invertible. Choose a new matrix", $CellContext`m$ = \
+$CellContext`n$$; $CellContext`L$ = {(-1)^RandomInteger[{1, 2}] 
+             RandomInteger[{1, 9}], (-1)^RandomInteger[{1, 2}] 
+             RandomInteger[{1, 9}], (-1)^RandomInteger[{1, 2}] 
+             RandomInteger[{1, 9}], (-1)^RandomInteger[{1, 2}] 
+             RandomInteger[{1, 9}]}; $CellContext`u$ = 
+           Span[1, $CellContext`n$$]; $CellContext`LL$ = 
+           Part[$CellContext`L$, $CellContext`u$]; 
+          If[$CellContext`n$$ == 2, {$CellContext`EE$ = {
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 1]}]], 
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 2]}]]}}]; 
+          If[$CellContext`n$$ == 3, {$CellContext`EE$ = {
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 1]}]], 
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 2]}]], 
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 3]}]]}}]; 
+          If[$CellContext`n$$ == 4, {$CellContext`EE$ = {
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 1]}]], 
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 2]}]], 
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 3]}]], 
+               TraditionalForm[
+                Transpose[{
+                  Part[$CellContext`Q$$, All, 4]}]]}}]; $CellContext`B$ = 
+           DiagonalMatrix[$CellContext`LL$]; $CellContext`M$ = 
+           Part[$CellContext`B$, $CellContext`u$, $CellContext`u$]; \
+$CellContext`A$ = Dot[$CellContext`Q$$, $CellContext`M$, 
+             Inverse[$CellContext`Q$$]]; 
+          Grid[{{Null, "\!\(TraditionalForm\`A\) ", 
+              Spacer[50], 
+              "\!\(TraditionalForm\`\*SuperscriptBox[\(A\), \(-1\)]\) "}, {
+             "Matrices:", 
+              TraditionalForm[$CellContext`A$], 
+              Spacer[50], 
+              TraditionalForm[
+               Inverse[$CellContext`A$]]}, {
+             "Eigenvalues:", $CellContext`LL$, Null, 1/$CellContext`LL$}, {
+             "Eigenvectors:", $CellContext`EE$, Null, $CellContext`EE$}}, 
+            Spacings -> {0, 2}]]], "Specifications" :> {{{$CellContext`n$$, 3, 
+          Style["size of matrices", {FontFamily -> "Times", 12, Italic}]}, 2, 
+         4, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "new matrices", {
+          FontFamily -> "Times", 12, 
+           Italic}], $CellContext`generateNewMatrix$$ = 
+         True], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`Q$$, {{3, 2, 2}, {-2, 4, 1}, {1, 5, 3}}}, 0, 
+         ControlType -> None}}, 
+      "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "Compare the eigenvalues and eigenvectors of the matrix \
+\!\(TraditionalForm\`A\) to the eigenvalues and eigenvectors of \
+\!\(TraditionalForm\`\*SuperscriptBox[\(A\), \(-1\)]\).", {
+           FontFamily -> "Times", 12}]}, ControlPlacement -> Bottom, 
+        ContentSize -> {550, 350}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{851., {339.9869384765625, 350.0130615234375}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`B = {{0, 0, 0, 0}, {0, -2, 0, 0}, {0, 
+        0, -4, 0}, {0, 0, 0, -2}}, $CellContext`M = {{0, 0, 0, 0}, {0, 5, 0, 
+        0}, {0, 0, -2, 0}, {0, 0, 0, 
+        2}}, $CellContext`A = {{(-1420)/701, (-1176)/701, 1416/701, (-200)/
+          701}, {(-3805)/1402, (-1388)/701, (-818)/701, 670/701}, {(-825)/
+          1402, (-312)/701, (-1198)/701, 90/701}, {
+         683/701, 226/701, 14/701, (-1602)/701}}, $CellContext`m = 
+       4, $CellContext`L = {1, 5, 5, -3, 4}, $CellContext`u = 
+       Span[1, 4], $CellContext`LL = {1, 5, 5, -3}, $CellContext`II = {{1, 0, 
+        0}, {0, 1, 0}, {0, 0, 1}}, $CellContext`EE = {
+         TraditionalForm[{{3}, {-9}, {-7}, {4}}], 
+         TraditionalForm[{{-5}, {8}, {0}, {2}}], 
+         TraditionalForm[{{5}, {1}, {-7}, {-2}}], 
+         TraditionalForm[{{-1}, {5}, {7}, {1}}]}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.875129441287205*^9},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal",
+ CellLabel->"Out[93]=",ExpressionUUID->"a65637d4-25e4-43a2-8e55-146459fff4b3"],
+
+Cell[TextData[{
+ "3. We can evaluate a polynomial at a square matrix ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "0e31efe7-3787-4d44-9a67-24e0701f855a"],
+ ".  For example, if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", "x", ")"}], "=", 
+    RowBox[{
+     SubsuperscriptBox["\[Sum]", 
+      RowBox[{"j", "=", "0"}], "n"], 
+     RowBox[{
+      SubscriptBox["a", "j"], 
+      SuperscriptBox["x", "j"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "1c5bde6b-8875-4c87-8089-fbe3d212993c"],
+ "\nthen ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", "A", ")"}], "=", 
+    RowBox[{
+     SubsuperscriptBox["\[Sum]", 
+      RowBox[{"j", "=", "0"}], "n"], 
+     RowBox[{
+      SubscriptBox["a", "j"], 
+      SuperscriptBox["A", "j"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "d2c4e043-5969-442e-9582-511de5885dc4"],
+ ".  Recall that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["A", "0"], "=", "I"}], TraditionalForm]],ExpressionUUID->
+  "3ce13dbb-ab79-4105-9f06-9301875ac529"],
+ ".  Use the interactive figure below to investigate the relationship between \
+the eigenvalues and eigenvectors of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "0d3e4667-40ab-482e-bfd9-2276e4460a99"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", "A", ")"}], TraditionalForm]],ExpressionUUID->
+  "98d77bf6-ceb7-497b-9d81-8e1bc2fdad7d"],
+ ".  What do you notice?"
+}], "Text",
+ CellChangeTimes->{{3.8751321574594994`*^9, 3.875132340421155*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal",ExpressionUUID->"ade361f7-a56c-44bb-bc45-78d3eb0a32e3"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generateNewMatrix$$ = 
+    False, $CellContext`n$$ = 3, $CellContext`nLast$$ = 
+    3, $CellContext`Q$$ = {{1, 2, 2}, {-3, 4, 1}, {1, 5, 3}}, Typeset`show$$ =
+     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 3, 
+       Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 3, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "new matrices", {
+         FontFamily -> "Times", 14, 
+          Italic}], $CellContext`generateNewMatrix$$ = True]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`Q$$], {{1, 2, 2}, {-3, 4, 1}, {1, 5, 3}}}, 0}}, 
+    Typeset`size$$ = {973., {192.87255859375, 202.12744140625}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generateNewMatrix$$ = 
+        False, $CellContext`n$$ = 3, $CellContext`nLast$$ = 
+        3, $CellContext`Q$$ = {{1, 2, 2}, {-3, 4, 1}, {1, 5, 3}}}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`B$, $CellContext`M$, $CellContext`A$, \
+$CellContext`m$, $CellContext`L$, $CellContext`u$, $CellContext`LL$, \
+$CellContext`II$, $CellContext`EE$}, If[
+          
+          Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`Q$$ = 
+           RandomInteger[{-9, 
+             9}, {$CellContext`n$$, $CellContext`n$$}], \
+$CellContext`generateNewMatrix$$ = 
+           False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+        If[Det[$CellContext`Q$$] == 0, 
+          "Matrix is not invertible. Choose a new matrix", $CellContext`m$ = \
+$CellContext`n$$; $CellContext`L$ = {
+             RandomInteger[{-5, 5}], 
+             RandomInteger[{-5, 5}], 
+             RandomInteger[{-5, 5}], 
+             RandomInteger[{-5, 5}]}; $CellContext`BIIE = {3, 3, 3, 
+            3}; $CellContext`u$ = Span[1, $CellContext`n$$]; $CellContext`LL$ = 
+           Part[$CellContext`L$, $CellContext`u$]; $CellContext`BII = 
+           Part[$CellContext`BIIE, $CellContext`u$]; 
+          If[$CellContext`n$$ == 
+            2, {$CellContext`II$ = {{1, 0}, {0, 1}}; $CellContext`EE$ = {
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 1]}]], 
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 2]}]]}}]; 
+          If[$CellContext`n$$ == 
+            3, {$CellContext`II$ = {{1, 0, 0}, {0, 1, 0}, {0, 0, 
+               1}}; $CellContext`EE$ = {
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 1]}]], 
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 2]}]], 
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 3]}]]}}]; 
+          If[$CellContext`n$$ == 
+            4, {$CellContext`II$ = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 
+               0}, {0, 0, 0, 1}}; $CellContext`EE$ = {
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 1]}]], 
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 2]}]], 
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 3]}]], 
+                TraditionalForm[
+                 Transpose[{
+                   Part[$CellContext`Q$$, All, 4]}]]}}]; $CellContext`B$ = 
+           DiagonalMatrix[$CellContext`LL$]; $CellContext`M$ = 
+           Part[$CellContext`B$, $CellContext`u$, $CellContext`u$]; \
+$CellContext`A$ = Dot[$CellContext`Q$$, $CellContext`M$, 
+             Inverse[$CellContext`Q$$]]; 
+          Grid[{{Null, Null, Null, 
+              "\!\(TraditionalForm\`g(x) = \*SuperscriptBox[\(x\), \(2\)] + 2 \
+ x + 3\)"}, {Null, "\!\(TraditionalForm\`A\) ", 
+              Spacer[25], "\!\(TraditionalForm\`g(A)\) ", "=", 
+              "\!\(TraditionalForm\`\*SuperscriptBox[\(A\), \(2\)]\) ", "+", 
+              "2\!\(TraditionalForm\`A\) ", "+", 
+              "\!\(TraditionalForm\`3  I\)"}, {"Matrices:", 
+              TraditionalForm[$CellContext`A$], 
+              Spacer[50], 
+              TraditionalForm[
+              Dot[$CellContext`A$, $CellContext`A$] + 2 $CellContext`A$ + 
+               3 $CellContext`II$], "=", 
+              TraditionalForm[
+               Dot[$CellContext`A$, $CellContext`A$]], "+", 
+              TraditionalForm[2 $CellContext`A$], "+", 
+              TraditionalForm[3 $CellContext`II$]}, {
+             "Eigenvalues:", $CellContext`LL$, 
+              Null, $CellContext`LL$ $CellContext`LL$ + 2 $CellContext`LL$ + 
+              3, Null, $CellContext`LL$ $CellContext`LL$, Null, 
+              2 $CellContext`LL$, Null, $CellContext`BII}, {
+             "Eigenvectors:", $CellContext`EE$, Null, $CellContext`EE$, 
+              Null, $CellContext`EE$, Null, $CellContext`EE$, Null, 
+              "All Nonzero Vectors"}}, Spacings -> {0, 2}]]], 
+      "Specifications" :> {{{$CellContext`n$$, 3, 
+          Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 
+         3, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "new matrices", {
+          FontFamily -> "Times", 14, 
+           Italic}], $CellContext`generateNewMatrix$$ = 
+         True], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`Q$$, {{1, 2, 2}, {-3, 4, 1}, {1, 5, 3}}}, 0, 
+         ControlType -> None}}, 
+      "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "Compare the eigenvalues and eigenvectors of the matrix \
+\!\(TraditionalForm\`A\) to the eigenvalues and eigenvectors of \
+\!\(TraditionalForm\`\(g(A)\)\\ and\\ its\\ component\\ matrices\).", {
+           FontFamily -> "Times", 16}]}, ControlPlacement -> Bottom, 
+        ContentSize -> {750, 350}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1281., {341.87255859375, 351.12744140625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`B = {{0, 0, 0, 0}, {0, -2, 0, 0}, {0, 
+        0, -4, 0}, {0, 0, 0, -2}}, $CellContext`M = {{-5, 0, 0, 0}, {0, -2, 0,
+         0}, {0, 0, -3, 0}, {0, 0, 0, 
+        1}}, $CellContext`A = {{(-1420)/701, (-1176)/701, 1416/701, (-200)/
+          701}, {(-3805)/1402, (-1388)/701, (-818)/701, 670/701}, {(-825)/
+          1402, (-312)/701, (-1198)/701, 90/701}, {
+         683/701, 226/701, 14/701, (-1602)/701}}, $CellContext`m = 
+       4, $CellContext`L = {1, 5, 5, -3, 4}, $CellContext`u = 
+       Span[1, 4], $CellContext`LL = {1, 5, 5, -3}, $CellContext`II = {{1, 0, 
+        0}, {0, 1, 0}, {0, 0, 1}}, $CellContext`EE = {
+         TraditionalForm[{{2}, {-4}, {7}, {6}}], 
+         TraditionalForm[{{3}, {4}, {-5}, {1}}], 
+         TraditionalForm[{{6}, {-6}, {-5}, {6}}], 
+         TraditionalForm[{{4}, {-2}, {4}, {1}}]}, $CellContext`BIIE = {3, 3, 
+        3, 3}, $CellContext`BII = {3, 3, 3}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.875126566176298*^9, 3.8751266253927774`*^9, {3.875126884121524*^9, 
+   3.8751269413062887`*^9}, 3.875127000701908*^9, 3.8751279126010804`*^9, 
+   3.875128376487125*^9, 3.87512892080989*^9, 3.8751289791252346`*^9, 
+   3.8751290231077595`*^9, {3.8870331482575846`*^9, 3.8870331682677016`*^9}, {
+   3.887036574450649*^9, 3.887036592971674*^9}, 3.8870367128405743`*^9, 
+   3.8870369045043344`*^9, {3.887037015295689*^9, 3.8870370328436255`*^9}, 
+   3.8870371042881536`*^9, 3.8870371464863358`*^9, 3.8870371981870365`*^9, 
+   3.887037266765408*^9, 3.887037367976478*^9, 3.887037500622987*^9, {
+   3.8870375482236705`*^9, 3.88703757348372*^9}, 3.887037650897611*^9, 
+   3.887037685758514*^9, 3.887037732381534*^9, 3.887037802889454*^9, 
+   3.8870379269561653`*^9, {3.887038028880129*^9, 3.8870380544842243`*^9}, 
+   3.9064634839177876`*^9, 3.90646369280285*^9, 3.9064637383227797`*^9},
+ FontFamily->"Times New Roman",
+ FontWeight->"Normal",
+ CellLabel->
+  "Out[218]=",ExpressionUUID->"975d80c6-f4d7-4130-a1c7-646bba7dbe72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The following interactive figures are an opportunity \
+for you to play around with several examples and see if you can predict how \
+different matrix operations affect the eigenvalues.  You may notice some \
+properties that are useful in better understanding your regular homework. \
+Remember that eigenvalues have been rounded to two decimal places and thus \
+you can ignore slight differences in the last digit compared to what you \
+might expect.  ",
+ FontFamily->"Times New Roman",
+ FontSize->16,
+ FontWeight->"Normal",
+ FontColor->RGBColor[0, 0, 1]]], "Subsubsection",
+ CellChangeTimes->{{3.906463272727418*^9, 3.9064632891404886`*^9}, {
+   3.9064633554291744`*^9, 3.9064634238608665`*^9}, {3.906463541459958*^9, 
+   3.906463550923628*^9}, 3.906463607163826*^9, {3.906464185640617*^9, 
+   3.906464392231412*^9}},ExpressionUUID->"028ff176-a19f-4821-b995-\
+0013880a58bb"],
+
+Cell["4. How does scaling a matrix affect its eigenvalues?", "Text",
+ CellChangeTimes->{{3.8544763183985257`*^9, 3.8544763424006467`*^9}, {
+  3.8544803256525326`*^9, 3.8544803423926363`*^9}, {3.8744293649213343`*^9, 
+  3.8744293654474125`*^9}, {3.90646378825259*^9, 3.90646378877063*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,ExpressionUUID->"154aaced-eb29-4a17-8a72-95ea01d8ea64"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = {{2, -1, 0, 0}, {5, -1, 2, 
+    0}, {-2, -3, 5, -1}, {-3, 5, 2, 1}}, $CellContext`c$$ = 
+    2, $CellContext`generateNewMatrix$$ = False, $CellContext`n$$ = 
+    4, $CellContext`nLast$$ = 4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`c$$], 2, 
+       Style["scalar c", {FontFamily -> "Times", 14, Italic}]}, -4, 4, 1}, {{
+       Hold[$CellContext`n$$], 2, 
+       Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 4, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "new matrices", {
+         FontFamily -> "Times", 14, 
+          Italic}], $CellContext`generateNewMatrix$$ = True]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`A$$], {{3, 0}, {0, -2}}}, 0}}, Typeset`size$$ = {
+    739., {119.3869384765625, 129.4130615234375}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = {{3, 0}, {0, -2}}, $CellContext`c$$ = 
+        2, $CellContext`generateNewMatrix$$ = False, $CellContext`n$$ = 
+        2, $CellContext`nLast$$ = 3}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> (If[
+         Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`A$$ = 
+          RandomInteger[{-5, 
+            5}, {$CellContext`n$$, $CellContext`n$$}], \
+$CellContext`generateNewMatrix$$ = 
+          False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+       Grid[{{"\!\(TraditionalForm\`A\) = ", 
+           TraditionalForm[$CellContext`A$$], 
+           "   Eigenvalues of \!\(TraditionalForm\`A\)", " = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`A$$]], 0.01]}, {
+          Null, Null, "\!\(\*StyleBox[\"c\",FontSlant->\"Italic\"]\)", 
+           " = ", $CellContext`c$$}, {
+          "\!\(\*StyleBox[\"cA\",FontSlant->\"Italic\"]\) = ", 
+           TraditionalForm[$CellContext`c$$ $CellContext`A$$], 
+           "   Eigenvalues of \!\(TraditionalForm\`c\[VeryThinSpace]A\) ", 
+           " = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`c$$ $CellContext`A$$]], 0.01]}}, 
+         Spacings -> 0]), "Specifications" :> {{{$CellContext`c$$, 2, 
+          Style["scalar c", {FontFamily -> "Times", 14, Italic}]}, -4, 4, 1, 
+         ControlType -> SetterBar, ImageSize -> Small}, {{$CellContext`n$$, 2, 
+          Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 
+         4, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "new matrices", {
+          FontFamily -> "Times", 14, 
+           Italic}], $CellContext`generateNewMatrix$$ = 
+         True], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`A$$, {{3, 0}, {0, -2}}}, 0, ControlType -> 
+         None}}, "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "Compare the eigenvalues of the random matrix \
+\!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\) to the eigenvalues of \
+\!\(\*StyleBox[\"cA\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
+\",FontSlant->\"Italic\"]\)for some scalar \
+\!\(\*StyleBox[\"c\",FontSlant->\"Italic\"]\).", {
+           FontFamily -> "Times", 16}]}, ControlPlacement -> Bottom, 
+        ContentSize -> {750, 175}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1151., {227.9869384765625, 238.0130615234375}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8545302779376297`*^9, 3.8545306010021486`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ CellLabel->
+  "Out[219]=",ExpressionUUID->"65b8f6d5-7007-4890-8c6b-2124f5950bf2"],
+
+Cell["3. How does powering up a matrix affect its eigenvalues?", "Text",
+ CellChangeTimes->{{3.8544763183985257`*^9, 3.8544763608185616`*^9}, {
+  3.8544804657888503`*^9, 3.854480490852731*^9}, {3.8744293690019455`*^9, 
+  3.874429369630024*^9}, {3.906463791945259*^9, 3.906463792180237*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,ExpressionUUID->"82624a54-e78e-4d9e-a912-cc4ba9ff05b3"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = {{-5, 2}, {
+    4, -3}}, $CellContext`generateNewMatrix$$ = False, $CellContext`k$$ = 
+    2, $CellContext`n$$ = 2, $CellContext`nLast$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 2, 
+       Style["power k", {FontFamily -> "Times", 14, Italic}]}, 0, 4, 1}, {{
+       Hold[$CellContext`n$$], 2, 
+       Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 4, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "new matrices", {
+         FontFamily -> "Times", 14, 
+          Italic}], $CellContext`generateNewMatrix$$ = True]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`A$$], {{3, 4}, {0, 2}}}, 0}}, Typeset`size$$ = {
+    427., {62.386938476562506`, 72.4130615234375}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = {{3, 4}, {0, 
+         2}}, $CellContext`generateNewMatrix$$ = False, $CellContext`k$$ = 
+        2, $CellContext`n$$ = 2, $CellContext`nLast$$ = 3}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> (If[
+         Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`A$$ = 
+          RandomInteger[{-5, 
+            5}, {$CellContext`n$$, $CellContext`n$$}], \
+$CellContext`generateNewMatrix$$ = 
+          False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+       Grid[{{"\!\(TraditionalForm\`A\) = ", 
+           TraditionalForm[$CellContext`A$$], 
+           "   Eigenvalues of \!\(TraditionalForm\`A\)", " = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`A$$]], 0.01]}, {
+          Null, Null, " \!\(\*StyleBox[\"k\",FontSlant->\"Italic\"]\) ", 
+           " = ", $CellContext`k$$}, {
+          "\!\(TraditionalForm\`\(TraditionalForm\`\*SuperscriptBox[\(A\), \
+\(k\)]\)\) = ", 
+           TraditionalForm[
+            MatrixPower[$CellContext`A$$, $CellContext`k$$]], 
+           "   Eigenvalues of \!\(TraditionalForm\`\*SuperscriptBox[\(A\), \
+\(k\)]\)", " = ", 
+           Round[
+            N[
+             Eigenvalues[
+              MatrixPower[$CellContext`A$$, $CellContext`k$$]]], 0.01]}}, 
+         Spacings -> 0]), "Specifications" :> {{{$CellContext`k$$, 2, 
+          Style["power k", {FontFamily -> "Times", 14, Italic}]}, 0, 4, 1, 
+         ControlType -> SetterBar, ImageSize -> Small}, {{$CellContext`n$$, 2, 
+          Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 
+         4, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "new matrices", {
+          FontFamily -> "Times", 14, 
+           Italic}], $CellContext`generateNewMatrix$$ = 
+         True], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`A$$, {{3, 4}, {0, 2}}}, 0, ControlType -> 
+         None}}, "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "Compare the eigenvalues of the random matrix \
+\!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\) to the eigenvalues of its \
+\!\(\*StyleBox[\"k\",FontSlant->\"Italic\"]\)th power.", {
+           FontFamily -> "Times", 16}]}, ControlPlacement -> Bottom, 
+        ContentSize -> {750, 175}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1151., {227.9869384765625, 238.0130615234375}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8532497623831787`*^9, 3.8532497921645575`*^9}, {
+   3.854480662739687*^9, 3.8544806874430156`*^9}, {3.8544807950851493`*^9, 
+   3.8544808224654603`*^9}, {3.8544809193681636`*^9, 3.8544809658181*^9}, 
+   3.8544841062356024`*^9, 3.8544852654366693`*^9, 3.8545303612910957`*^9, 
+   3.8545304042423058`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ CellLabel->
+  "Out[218]=",ExpressionUUID->"09940809-812b-4939-90af-a5207cf24acf"],
+
+Cell["\<\
+4. Are there relationships between to the eigenvalues of matrices and their \
+sums and products? \
+\>", "Text",
+ CellChangeTimes->{{3.854481052567532*^9, 3.854481109413186*^9}, {
+  3.874429375752117*^9, 3.8744293787073307`*^9}, {3.906463795009423*^9, 
+  3.906463795493699*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,ExpressionUUID->"817b813b-cb4a-446b-b4b6-58625adda9fc"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = {{-4, -4}, {
+    0, -4}}, $CellContext`B$$ = {{2, 1}, {1, 
+    8}}, $CellContext`generateNewMatrix$$ = False, $CellContext`n$$ = 
+    2, $CellContext`nLast$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 2, 
+       Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 4, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "new matrices", {
+         FontFamily -> "Times", 14, 
+          Italic}], $CellContext`generateNewMatrix$$ = True]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`A$$], {{3, 4}, {0, -2}}}, 0}, {{
+       Hold[$CellContext`B$$], {{5, 0}, {0, 1}}}, 0}}, Typeset`size$$ = {
+    532., {172.9869384765625, 183.0130615234375}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = {{3, 4}, {
+         0, -2}}, $CellContext`B$$ = {{5, 0}, {0, 
+         1}}, $CellContext`generateNewMatrix$$ = False, $CellContext`n$$ = 
+        2, $CellContext`nLast$$ = 3}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> (If[
+         Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`A$$ = 
+          RandomInteger[{-5, 
+            5}, {$CellContext`n$$, $CellContext`n$$}], $CellContext`b = 
+           RandomInteger[{0, 
+             5}, {$CellContext`n$$, $CellContext`n$$}]; $CellContext`B$$ = \
+$CellContext`b + Transpose[$CellContext`b], $CellContext`generateNewMatrix$$ = 
+          False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+       Grid[{{"\!\(TraditionalForm\`A\) = ", 
+           TraditionalForm[$CellContext`A$$], 
+           "   Eigenvalues \!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\) = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`A$$]], 0.01]}, {
+          "\!\(TraditionalForm\`B\) = ", 
+           TraditionalForm[$CellContext`B$$], 
+           "   Eigenvalues \
+\!\(\*StyleBox[\"B\",FontWeight->\"Plain\",FontSlant->\"Italic\"]\) = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`B$$]], 0.01]}, {
+          "\!\(TraditionalForm\`A + B\) = ", 
+           TraditionalForm[$CellContext`B$$], 
+           "   Eigenvalues \!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\)+\!\(\
+\*StyleBox[\"B\",FontWeight->\"Plain\",FontSlant->\"Italic\"]\) = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`A$$ + $CellContext`B$$]], 0.01]}, {
+          "\!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\)\!\(TraditionalForm\`\
+B\) = ", 
+           TraditionalForm[
+            Dot[$CellContext`A$$, $CellContext`B$$]], 
+           "   Eigenvalues\!\(\*StyleBox[\" \
+\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\)\!\(\*\
+StyleBox[\"B\",FontWeight->\"Plain\",FontSlant->\"Italic\"]\) = ", 
+           Round[
+            N[
+             Eigenvalues[
+              Dot[$CellContext`A$$, $CellContext`B$$]]], 0.01]}, {
+          "\!\(\*StyleBox[\"BA\",FontSlant->\"Italic\"]\) = ", 
+           TraditionalForm[
+            Dot[$CellContext`B$$, $CellContext`A$$]], 
+           "   Eigenvalues\!\(\*StyleBox[\" \
+\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"BA\",FontSlant->\"Italic\"]\) = ", 
+           Round[
+            N[
+             Eigenvalues[
+              Dot[$CellContext`B$$, $CellContext`A$$]]], 0.01]}, {
+          "\!\(\*SuperscriptBox[StyleBox[\"B\",FontSlant->\"Italic\"], \
+RowBox[{\"-\", \
+\"1\"}]]\)\!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\)\!\(TraditionalForm\`B\
+\) = ", 
+           TraditionalForm[
+            Dot[
+             Inverse[$CellContext`B$$], $CellContext`A$$, $CellContext`B$$]], 
+           "   Eigenvalues\!\(\*StyleBox[\" \
+\",FontSlant->\"Italic\"]\)\!\(\*SuperscriptBox[StyleBox[\"B\",FontSlant->\"\
+Italic\"], RowBox[{\"-\", \
+\"1\"}]]\)\!\(\*StyleBox[\"A\",FontSlant->\"Italic\"]\)\!\(TraditionalForm\`B\
+\) = ", 
+           Round[
+            N[
+             Eigenvalues[
+              Dot[
+               
+               Inverse[$CellContext`B$$], $CellContext`A$$, \
+$CellContext`B$$]]], 0.01]}}, Spacings -> 0]), 
+      "Specifications" :> {{{$CellContext`n$$, 2, 
+          Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 
+         4, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "new matrices", {
+          FontFamily -> "Times", 14, 
+           Italic}], $CellContext`generateNewMatrix$$ = 
+         True], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`A$$, {{3, 4}, {0, -2}}}, 0, ControlType -> 
+         None}, {{$CellContext`B$$, {{5, 0}, {0, 1}}}, 0, ControlType -> 
+         None}}, "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "Do you see relationships between the eigevalues of \!\(\*StyleBox[\
+\"A\",FontSlant->\"Italic\"]\) and \
+\!\(\*StyleBox[\"B\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)and their sums and products.", {FontFamily -> "Times", 16}]}, 
+        ControlPlacement -> Bottom, ContentSize -> {750, 400}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1151., {379.9869384765625, 390.0130615234375}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`b = {{1, 0, 1, 5}, {5, 0, 3, 4}, {5, 0, 1, 
+        1}, {5, 1, 3, 2}}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8544849581744013`*^9, 3.854485003057347*^9}, {
+   3.8544881009614005`*^9, 3.8544881720828376`*^9}, 3.8545344557354364`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ CellLabel->
+  "Out[220]=",ExpressionUUID->"81d57a6b-c7ad-4217-a255-c3d810a2ff0d"],
+
+Cell["\<\
+5. How do the eigenvalues of a matrix relate to its trace and determinant?\
+\>", "Text",
+ CellChangeTimes->{{3.854476418772029*^9, 3.854476435189526*^9}, {
+   3.8544764904442797`*^9, 3.8544764990298214`*^9}, {3.8544765396520767`*^9, 
+   3.854476543349454*^9}, 3.8544766069142694`*^9, {3.8544780956365585`*^9, 
+   3.8544780956365585`*^9}, {3.8544810074772253`*^9, 3.854481038977598*^9}, {
+   3.854481116828974*^9, 3.8544811329093704`*^9}, {3.8744293875418053`*^9, 
+   3.8744293881095734`*^9}, {3.9064637983065543`*^9, 3.906463800525762*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->14,ExpressionUUID->"ff330ff0-2211-424a-8611-a7c95808078d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = {{-5, 3}, {2, 
+    0}}, $CellContext`generateNewMatrix$$ = False, $CellContext`n$$ = 
+    2, $CellContext`nLast$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 2, 
+       Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 4, 
+      1}, {
+      Hold[
+       Button[
+        Style[
+        "new matrices", {
+         FontFamily -> "Times", 14, 
+          Italic}], $CellContext`generateNewMatrix$$ = True]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`generateNewMatrix$$], False}, 0}, {{
+       Hold[$CellContext`nLast$$], 3}, 0}, {{
+       Hold[$CellContext`A$$], {{3, 4}, {0, -2}}}, 0}}, Typeset`size$$ = {
+    364., {47.8869384765625, 57.9130615234375}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = {{3, 4}, {
+         0, -2}}, $CellContext`generateNewMatrix$$ = False, $CellContext`n$$ = 
+        2, $CellContext`nLast$$ = 3}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> (If[
+         Or[$CellContext`generateNewMatrix$$, $CellContext`n$$ != \
+$CellContext`nLast$$], {$CellContext`A$$ = 
+          RandomInteger[{-5, 
+            5}, {$CellContext`n$$, $CellContext`n$$}], \
+$CellContext`generateNewMatrix$$ = 
+          False, $CellContext`nLast$$ = $CellContext`n$$}]; 
+       Grid[{{"\!\(TraditionalForm\`A\) = ", 
+           TraditionalForm[$CellContext`A$$], 
+           "   Eigenvalues of \!\(TraditionalForm\`A\)", " = ", 
+           Round[
+            N[
+             Eigenvalues[$CellContext`A$$]], 0.01]}, {
+          Null, Null, "Determinant(A)", " = ", 
+           Det[$CellContext`A$$]}, {Null, Null, "Trace(A)", " = ", 
+           Tr[$CellContext`A$$]}}, Spacings -> 0]), 
+      "Specifications" :> {{{$CellContext`n$$, 2, 
+          Style["size of matrices", {FontFamily -> "Times", 14, Italic}]}, 2, 
+         4, 1, ControlType -> SetterBar, ImageSize -> Small}, 
+        Button[
+         Style[
+         "new matrices", {
+          FontFamily -> "Times", 14, 
+           Italic}], $CellContext`generateNewMatrix$$ = 
+         True], {{$CellContext`generateNewMatrix$$, False}, 0, ControlType -> 
+         None}, {{$CellContext`nLast$$, 3}, 0, ControlType -> 
+         None}, {{$CellContext`A$$, {{3, 4}, {0, -2}}}, 0, ControlType -> 
+         None}}, "Options" :> {
+       ControlPlacement -> Bottom, AppearanceElements -> "ResetButton", 
+        FrameLabel -> {
+          Style[
+          "Can you find a relationship between the eigenvalues of a matrix \
+and its trace or determinant?", {FontFamily -> "Times", 16}]}, 
+        ControlPlacement -> Bottom, ContentSize -> {750, 175}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1151., {211.9869384765625, 222.0130615234375}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.854483950058882*^9, 3.854483961270574*^9}, 
+   3.854483998001337*^9, 3.854484076639776*^9, 3.8544841557251344`*^9, 
+   3.854484269983844*^9, 3.8544843200528097`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ CellLabel->
+  "Out[104]=",ExpressionUUID->"00648861-6492-419a-bd06-3301aa90a643"]
+}, Open  ]]
+},
+WindowSize->{1428., 768.75},
+WindowMargins->{{Automatic, 960}, {Automatic, -132.75}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b0b0963e-6f72-4c4c-8d79-3e95272a7ef3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1404, 30, 132, "Text",ExpressionUUID->"2b718192-befc-49e7-be89-59a267391d84"],
+Cell[CellGroupData[{
+Cell[1987, 54, 372, 8, 58, "Subsubsection",ExpressionUUID->"280a252b-d45a-48c4-bedf-57889b8ebcf9"],
+Cell[2362, 64, 733, 12, 103, "Text",ExpressionUUID->"229a5f29-f8aa-4e38-996a-10933936731d"],
+Cell[3098, 78, 10249, 210, 913, "Text",ExpressionUUID->"a2561784-b4eb-4caa-a981-924742577894"],
+Cell[13350, 290, 861, 20, 75, "Text",ExpressionUUID->"da5ebe3c-f2f8-4932-bc75-cd23c2a4941d"],
+Cell[14214, 312, 7259, 148, 735, "Output",ExpressionUUID->"a65637d4-25e4-43a2-8e55-146459fff4b3"],
+Cell[21476, 462, 1646, 50, 114, "Text",ExpressionUUID->"ade361f7-a56c-44bb-bc45-78d3eb0a32e3"],
+Cell[23125, 514, 9245, 180, 738, "Output",ExpressionUUID->"975d80c6-f4d7-4130-a1c7-646bba7dbe72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32407, 699, 898, 15, 146, "Subsubsection",ExpressionUUID->"028ff176-a19f-4821-b995-0013880a58bb"],
+Cell[33308, 716, 390, 5, 46, "Text",ExpressionUUID->"154aaced-eb29-4a17-8a72-95ea01d8ea64"],
+Cell[33701, 723, 4753, 97, 511, "Output",ExpressionUUID->"65b8f6d5-7007-4890-8c6b-2124f5950bf2"],
+Cell[38457, 822, 392, 5, 46, "Text",ExpressionUUID->"82624a54-e78e-4d9e-a912-cc4ba9ff05b3"],
+Cell[38852, 829, 4954, 102, 511, "Output",ExpressionUUID->"09940809-812b-4939-90af-a5207cf24acf"],
+Cell[43809, 933, 389, 8, 46, "Text",ExpressionUUID->"817b813b-cb4a-446b-b4b6-58625adda9fc"],
+Cell[44201, 943, 6759, 144, 815, "Output",ExpressionUUID->"81d57a6b-c7ad-4217-a255-c3d810a2ff0d"],
+Cell[50963, 1089, 652, 10, 46, "Text",ExpressionUUID->"ff330ff0-2211-424a-8611-a7c95808078d"],
+Cell[51618, 1101, 4033, 85, 479, "Output",ExpressionUUID->"00648861-6492-419a-bd06-3301aa90a643"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,1753 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     67742,       1745]
+NotebookOptionsPosition[     58960,       1605]
+NotebookOutlinePosition[     59557,       1625]
+CellTagsIndexPosition[     59514,       1622]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["MATH 420-01",
+ FontSize->24,
+ FontColor->RGBColor[0., 0.5019607843137255, 0.5019607843137255]]], "Title",
+ CellChangeTimes->{{3.6179684285727897`*^9, 3.6179684375948114`*^9}, 
+   3.617971980867153*^9, 3.8383066845018682`*^9, {3.8387365145039787`*^9, 
+   3.8387365163000507`*^9}, {3.8717251411861353`*^9, 3.871725141959075*^9}, {
+   3.9064701654426928`*^9, 3.906470165733495*^9}},
+ TextAlignment->Center,
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"28ef0196-bf89-4053-9813-6dc8f407d461"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["DISCUSS MIDTERM",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.873801021205555*^9, 3.873801024729598*^9}, {
+  3.873801577565978*^9, 3.873801580124097*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"fd107bc7-e906-4161-b5bf-181a5b1001f2"],
+
+Cell["\<\
+MIDTERM COVERS Sections 1.1-1.6, 2.1-2.5, and Three Ways to Multiply \
+Matrices. It will be on Tuesday, October 24 in Neill 5W.\
+\>", "Text",
+ CellChangeTimes->{{3.87380105795689*^9, 3.8738011363393793`*^9}, {
+  3.8738016006129436`*^9, 3.873801601384162*^9}, {3.8739793867277536`*^9, 
+  3.873979404210287*^9}, {3.905932806788138*^9, 3.905932823783168*^9}, {
+  3.9066451729624786`*^9, 3.9066451820947285`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"8e5ff7e2-b286-4ec7-b3e9-77b22790ff0b"],
+
+Cell["\<\
+Note that I will not test on 1.7, the section with maximal sets and Zorn\
+\[CloseCurlyQuote]s lemma.  \
+\>", "Text",
+ CellChangeTimes->{{3.87380105795689*^9, 3.8738011573881474`*^9}, {
+   3.873801606390089*^9, 3.8738016069932656`*^9}, {3.873802332810398*^9, 
+   3.873802342725005*^9}, {3.873975347839156*^9, 3.8739753484542313`*^9}, 
+   3.9059329453945813`*^9},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"6ac6c061-0c2f-4d1b-8685-92e6c2d03d46"],
+
+Cell["Midterm Tuesday October 24, 5:30 - 9:30 in Neill 5W. ", "Text",
+ CellChangeTimes->{{3.8738027035167236`*^9, 3.8738027288368587`*^9}, {
+  3.9058677796870966`*^9, 3.9058678041375093`*^9}, {3.9060411612237406`*^9, 
+  3.906041162026441*^9}, {3.906041204032775*^9, 3.906041227036853*^9}, {
+  3.9066450035288696`*^9, 3.906645012607938*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"d6f0058f-d542-416d-b666-6ef6050ad616"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["Q", TraditionalForm]],ExpressionUUID->
+  "8c823430-34dd-4d1d-a48a-546f389aed30"],
+ "&A on Monday October 23 during class"
+}], "Text",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8738027035167236`*^9, 3.8738027288368587`*^9}, {
+  3.9058677796870966`*^9, 3.9058678241176023`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"8b0f704e-bf44-4d7c-bbf8-ebae1c4810d9"],
+
+Cell["One side of one 8.5x11 sheet of notes.", "Text",
+ CellChangeTimes->{{3.8738027035167236`*^9, 3.8738027288368587`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"750332a4-4588-4bee-b4ae-06ca1d9f038f"],
+
+Cell[TextData[StyleBox["Our  \[OpenCurlyDoubleQuote]day off\
+\[CloseCurlyDoubleQuote] will be November 17?",
+ FontSlant->"Plain"]], "Text",
+ CellChangeTimes->{{3.87397461610332*^9, 3.8739746636662564`*^9}, {
+  3.8739752333481083`*^9, 3.873975235676852*^9}, {3.873979417906496*^9, 
+  3.8739794218750873`*^9}, {3.9058677517470217`*^9, 3.905867752133713*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"aacd062a-0513-49e5-a151-d7d644f1de28"],
+
+Cell["OFFICE HOURS SUNDAY AND MONDAY 7PM on the usual zoom link.", "Text",
+ CellChangeTimes->{{3.9066452755305204`*^9, 3.9066453008456774`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"d33797f0-d5e4-4508-b5c8-a91ef3ffbc9b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Homework: ",
+  FontFamily->"Times New Roman",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0., 0.5019607843137255, 0.5019607843137255]],
+ StyleBox[" ",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 0.7]]
+}], "Subsubsubsection",
+ CellChangeTimes->{{3.6215981009575243`*^9, 3.62159821730051*^9}, 
+   3.621598356761585*^9, {3.6216111387533464`*^9, 3.6216111400346584`*^9}, 
+   3.8425223116722083`*^9, 3.8425223602552567`*^9, {3.874145326564135*^9, 
+   3.874145327912754*^9}, {3.8745779500520797`*^9, 3.8745779608752728`*^9}, {
+   3.9064702006197476`*^9, 3.9064702041087914`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"2ed98b57-25a4-443e-97de-25581b4004eb"],
+
+Cell["Homework for the remainder of the semester has been posted. ", "Text",
+ CellChangeTimes->{{3.874578619618582*^9, 3.87457879897707*^9}, {
+   3.906470207446391*^9, 3.9064703366758347`*^9}, 3.906472652038907*^9},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"bbcfd546-5558-4f3a-85b7-d08e00fd89f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Roadmap from here: ",
+  FontFamily->"Times New Roman",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0., 0.5019607843137255, 0.5019607843137255]],
+ StyleBox[" ",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 0.7]]
+}], "Subsubsubsection",
+ CellChangeTimes->{{3.6215981009575243`*^9, 3.62159821730051*^9}, 
+   3.621598356761585*^9, {3.6216111387533464`*^9, 3.6216111400346584`*^9}, 
+   3.8425223116722083`*^9, 3.8425223602552567`*^9, {3.874145326564135*^9, 
+   3.874145327912754*^9}, {3.8745779500520797`*^9, 3.8745779608752728`*^9}, {
+   3.9064702006197476`*^9, 3.9064702041087914`*^9}, {3.9064703525067754`*^9, 
+   3.906470357852553*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"bf97c117-8c94-42ce-a664-33843b18e233"],
+
+Cell["\<\
+Solving systems of equations (Chapter 3) and determinants (Chapter 4) are \
+covered quite well in Math 220/225/230, however orthogonality (Chapter 6) is \
+not and is critically important in modern applications.  As such, I will not \
+cover systems of equations and determinants in class.  You may need to use \
+them moving forward so it is good to review basic properties.  We will cover \
+Chapters 5 and 6 in the time remaining.\
+\>", "Text",
+ CellChangeTimes->{{3.9064703771964006`*^9, 3.9064704883265257`*^9}, {
+  3.906472724808317*^9, 3.9064727397187176`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"017d599a-51e2-491b-9217-6210cef6601a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["5.1 Eigenvalues and Eigenvectors",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[0., 0.5019607843137255, 0.5019607843137255]]], "Section",
+ CellChangeTimes->{{3.6193516890568523`*^9, 3.619351702367731*^9}, {
+   3.6203876739853225`*^9, 3.6203876922623634`*^9}, {3.6207349095107193`*^9, 
+   3.6207349400432186`*^9}, {3.6209940980164237`*^9, 
+   3.6209941257916193`*^9}, {3.621166706928668*^9, 3.621166722976368*^9}, {
+   3.62159916232817*^9, 3.621599196108389*^9}, 3.62159984976527*^9, {
+   3.6223749799468083`*^9, 3.6223749960257387`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"5d27fedc-ed0b-4c65-92a0-3c2519f58976"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Notation: ",
+ FontWeight->"Bold",
+ FontColor->RGBColor[0, 0.5, 0.5]]], "Subsubsubsection",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.6223751657166014`*^9}, {
+   3.6223759980074515`*^9, 3.6223759985075116`*^9}, 3.622379358920253*^9, 
+   3.8433010375094147`*^9, {3.843301260709901*^9, 3.8433012624904604`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"bdf7b829-0c80-4db7-ab1f-1e4f9d86f79f"],
+
+Cell[TextData[{
+ "\[OpenCurlyDoubleQuote]Let ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "4f22612e-9ea8-4708-ad33-d8b9e56316b4"],
+ " be a space over a field \[DoubleStruckCapitalF] and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", ":", "V"}], "\[Rule]", "V"}], TraditionalForm]],
+  ExpressionUUID->"47bf8f1d-6162-4ad2-9c54-d5bdd02584b4"],
+ " a linear transformation.\[CloseCurlyDoubleQuote]  "
+}], "Text",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.6223751657166014`*^9}, {
+   3.6223759980074515`*^9, 3.6223759985075116`*^9}, 3.622379358920253*^9, 
+   3.8433010395895166`*^9, {3.843301153074149*^9, 3.8433011703915586`*^9}, {
+   3.8433012095246887`*^9, 3.8433012563546724`*^9}, {3.843301316770671*^9, 
+   3.8433013205372133`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"0ef3e1f5-84f3-44e7-9114-118a46ac16c4"],
+
+Cell["will be summarized with the statement", "Text",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.6223751657166014`*^9}, {
+   3.6223759980074515`*^9, 3.6223759985075116`*^9}, 3.622379358920253*^9, 
+   3.8433010395895166`*^9, {3.843301153074149*^9, 3.8433011703915586`*^9}, {
+   3.8433012095246887`*^9, 3.843301335492241*^9}, {3.8433013696218*^9, 
+   3.8433014029654884`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"fabac2cb-79be-4293-a7c9-b88d29e1e835"],
+
+Cell[TextData[{
+ " \"Let ",
+ StyleBox["T ",
+  FontSlant->"Italic"],
+ "be a linear operator on a vector space ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "a49ac3f8-68fd-47e6-9a6a-c26fe4db2ca4"],
+ "\" ."
+}], "Text",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.6223751657166014`*^9}, {
+   3.6223759980074515`*^9, 3.6223759985075116`*^9}, 3.622379358920253*^9, 
+   3.8433010395895166`*^9, {3.843301153074149*^9, 3.8433011703915586`*^9}, {
+   3.8433012095246887`*^9, 3.843301335492241*^9}, {3.8433013696218*^9, 
+   3.843301375348682*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"1f63c207-a8f9-4974-bb2d-b7f16359660d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Definition: ",
+ FontWeight->"Bold",
+ FontColor->RGBColor[0, 0.5, 0.5]]], "Subsubsubsection",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.6223751657166014`*^9}, {
+   3.6223759980074515`*^9, 3.6223759985075116`*^9}, 3.622379358920253*^9, 
+   3.8433010375094147`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"8b1f33c9-aece-4692-8d2b-5acfad738161"],
+
+Cell[TextData[{
+ "A linear operator ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "b623de55-ea7b-420d-ac03-2f7677c6e3e3"],
+ " on a finite dimensional vector space ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", " "}], TraditionalForm]],ExpressionUUID->
+  "1df2e088-17e4-4db5-bf19-77ede1f2f86c"],
+ "is said to be ",
+ StyleBox["diagonalizable",
+  FontFamily->"Times New Roman",
+  FontWeight->"Normal",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0., 0., 0.]],
+ " if there is an ordered basis \[Beta] for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "15ca63eb-905e-4d53-a26d-5b2bf7855016"],
+ " such that ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    RowBox[{"[", "T", "]"}], "\[Beta]"], TraditionalForm]],ExpressionUUID->
+  "72dff230-3f1e-46f1-b023-64f415e64013"],
+ " is diagonal."
+}], "Text",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.6223751657166014`*^9}, {
+   3.6223759980074515`*^9, 3.6223759985075116`*^9}, 3.622379358920253*^9, 
+   3.8433010395895166`*^9, {3.8435548752423754`*^9, 3.8435548841372986`*^9}, {
+   3.8435739668206596`*^9, 3.8435739796449966`*^9}, {3.8435741061074295`*^9, 
+   3.8435741061074295`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"c9f358d2-e598-4381-84d6-6bb114987aa5"],
+
+Cell[TextData[{
+ "NOTE: When we are using the same basis both time ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox[
+    RowBox[{"[", "T", "]"}], "\[Beta]", "\[Beta]"], TraditionalForm]],
+  ExpressionUUID->"68aa7513-6302-4f86-973f-7a23015b384f"],
+ ", we can omit the second \[Beta]: ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    RowBox[{"[", "T", "]"}], "\[Beta]"], TraditionalForm]],ExpressionUUID->
+  "3f85836d-a2f4-429c-aa38-803c1ed19986"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.8435741083067293`*^9, 3.843574150099575*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"738cf88a-9a3f-402e-a3b0-125dd968f351"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Definition:  ", "Subsubsubsection",
+ FontWeight->"Bold",
+ FontColor->RGBColor[0, 0.5, 0.5]]], "Subsubsubsection",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.622375298178881*^9}, {
+   3.62237534841584*^9, 3.622375360557118*^9}, {3.622379302178646*^9, 
+   3.622379302725529*^9}, 3.6223794601658373`*^9, 3.843301080313221*^9},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"3511a0be-d760-444d-b313-beb46c9d4ae7"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "7611e07b-d880-421f-9e00-20c3d225b06b"],
+ " be a linear operator on a vector space ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", "."}], TraditionalForm]],ExpressionUUID->
+  "148290c9-013d-4585-ab7c-6a5c71d0a8f9"],
+ "  A nonzero vector ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", "\[Element]", "V"}], TraditionalForm]],ExpressionUUID->
+  "8e547ca8-4cf5-4eff-89ef-bbbc003bf1e8"],
+ " is said to be an ",
+ StyleBox["eigenvector",
+  FontFamily->"Times New Roman",
+  FontWeight->"Normal",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0., 0., 0.]],
+ " of ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "27546241-e34e-462c-9131-52c8196147ab"],
+ " if there is a scalar \[Lambda] such that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", "(", "v", ")"}], "=", 
+    RowBox[{"\[Lambda]", " ", 
+     RowBox[{"v", "."}]}]}], TraditionalForm]],ExpressionUUID->
+  "238842f9-b08a-4e46-a29c-e6b9c8966305"],
+ "  The scalar \[Lambda] is referred to as the ",
+ StyleBox["eigenvalue",
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0]],
+ " corresponding to the eigenvector ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", "."}], TraditionalForm]],ExpressionUUID->
+  "20177510-7fdc-45b5-aee0-9a4b43ed1180"]
+}], "Text",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, {3.621599458231881*^9, 
+   3.621599464692874*^9}, 3.621775121619269*^9, {3.622375021667694*^9, 
+   3.622375096941824*^9}, {3.6223751657166014`*^9, 3.622375298178881*^9}, {
+   3.62237534841584*^9, 3.622375360557118*^9}, {3.622379302178646*^9, 
+   3.622379302725529*^9}, 3.6223794601658373`*^9},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"50fbf9b3-a442-404b-ad53-8451c58eea62"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Example:",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.8437467240612755`*^9, 3.8437467255702195`*^9}, {
+  3.9066375212698865`*^9, 3.9066375256851864`*^9}, {3.906637812753715*^9, 
+  3.9066378147058496`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"6242717c-56fe-45de-a661-77335f5119ef"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"T", "(", 
+   RowBox[{"a", " ", "+", 
+    RowBox[{"b", " ", "x"}], "+", 
+    RowBox[{"c", " ", 
+     SuperscriptBox["x", "2"]}], "+", 
+    RowBox[{"d", " ", 
+     SuperscriptBox["x", "3"]}]}], ")"}], 
+  TraditionalForm]],ExpressionUUID->"42c2ccdc-268c-41f1-9359-6c44079579ec"]], \
+"Text",
+ CellChangeTimes->{{3.622376001257618*^9, 3.622376063229617*^9}, {
+  3.6223762800833955`*^9, 3.622376460393091*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"2d05e962-71be-4d8b-8247-fa4deddafbde"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"5", " ", "a"}], "+", "b", "-", "c", "-", "d"}], ")"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"a", "+", 
+        RowBox[{"5", " ", "b"}], "-", "c", "-", "d"}], ")"}], "x"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "a"}], "-", "b", "+", 
+        RowBox[{"6", " ", "c"}]}], ")"}], 
+      SuperscriptBox["x", "2"]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "a"}], "-", "b", "+", 
+        RowBox[{"6", " ", "d"}]}], ")"}], 
+      SuperscriptBox["x", "3"]}]}]}], TraditionalForm]],
+  CellChangeTimes->{3.622376264035672*^9},
+  FontWeight->"Normal",ExpressionUUID->"33d4cc2c-7218-4c84-9b81-5a6b946c1e15"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.622376001257618*^9, 3.622376063229617*^9}, {
+  3.6223762800833955`*^9, 3.6223764815660744`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"54667ba4-3278-4c3e-bf37-7910c5cc6ff4"],
+
+Cell[TextData[{
+ "Notice ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", "(", 
+     RowBox[{"1", "+", "x", "+", 
+      SuperscriptBox["x", "2"], "+", 
+      SuperscriptBox["x", "3"]}], ")"}], "=", 
+    RowBox[{
+     RowBox[{"4", "+", 
+      RowBox[{"4", "\[VeryThinSpace]", "x"}], "+", 
+      RowBox[{"4", 
+       SuperscriptBox["x", "2"]}], "+", 
+      RowBox[{"4", 
+       SuperscriptBox["x", "3"]}]}], "=", 
+     RowBox[{"4", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", "x", "+", 
+        SuperscriptBox["x", "2"], "+", 
+        SuperscriptBox["x", "3"]}], ")"}]}]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4e6cebf8-a89b-4a0f-b82a-25c79a1fc697"]
+}], "Text",
+ CellChangeTimes->{{3.622549073324427*^9, 3.622549158969363*^9}, {
+   3.6225493988262625`*^9, 3.6225493993575397`*^9}, {3.9066375365763407`*^9, 
+   3.9066376396974335`*^9}, 3.906645507370347*^9, {3.906645674411996*^9, 
+   3.9066457350818777`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"93cbb7d3-7877-4558-b24e-68587fba3b88"],
+
+Cell[TextData[{
+ "So for this transformation, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "+", "x", "+", 
+    SuperscriptBox["x", "2"], "+", 
+    SuperscriptBox["x", "3"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1f7147fd-587c-499e-af2e-7deda89b6e04"],
+ " is an eigenvector with eigenvalue 4. "
+}], "Text",
+ CellChangeTimes->{{3.9066457382969055`*^9, 
+  3.9066457638531036`*^9}},ExpressionUUID->"f7c7613c-7a1b-4440-bb58-\
+1b24e76a878d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Questions:",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.843300989150785*^9, 3.8433009925852985`*^9}, {
+  3.9066376924279804`*^9, 3.906637694295069*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"98b7bf05-c4f8-4a23-a4d3-4b3f3ccdddcc"],
+
+Cell[TextData[{
+ "How do we find these special \[OpenCurlyDoubleQuote]vectors\
+\[CloseCurlyDoubleQuote] for ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "f0157567-3b14-4558-b848-cdc232cbf29c"],
+ "?"
+}], "Text",
+ CellChangeTimes->{{3.6223766349830866`*^9, 3.622376651640234*^9}, {
+  3.6223767411126814`*^9, 3.622376759144869*^9}, {3.6223789124139147`*^9, 
+  3.622378953406479*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"824d6a4a-2e78-41a1-9929-49ecbfeea8cd"],
+
+Cell[TextData[{
+ "Does ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "387e868a-ec6e-44ea-ac0d-58d9e4b4916b"],
+ " always have such special vectors?"
+}], "Text",
+ CellChangeTimes->{{3.6223766349830866`*^9, 3.622376651640234*^9}, {
+  3.6223767411126814`*^9, 3.622376759144869*^9}, {3.6223789124139147`*^9, 
+  3.6223789784390154`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"0380e158-901e-4deb-9b06-6bc37da21d5d"],
+
+Cell["When are they linearly independent?", "Text",
+ CellChangeTimes->{{3.6223766349830866`*^9, 3.622376651640234*^9}, {
+  3.6223767411126814`*^9, 3.622376759144869*^9}, {3.6223789124139147`*^9, 
+  3.622378987158224*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"d5b98ef7-855c-487f-8e55-28933ca7b37d"],
+
+Cell[TextData[{
+ "Are there enough linearly independent special vectors to make a basis for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "f7c1a373-a9e4-4230-9319-8cb2043c9910"],
+ "?"
+}], "Text",
+ CellChangeTimes->{{3.622378988002016*^9, 3.6223790256636305`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"815ebbb4-1c5e-4fb4-b9be-8363f9347ae0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Theorem:  ",
+ FontWeight->"Bold",
+ FontColor->RGBColor[0, 0.5, 0.5]]], "Subsubsubsection",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, 3.621599458231881*^9, {
+   3.622375382511361*^9, 3.6223757076190605`*^9}, {3.6223758011742105`*^9, 
+   3.6223758011742105`*^9}, {3.6223792309166665`*^9, 3.622379232151112*^9}, 
+   3.8433014270379777`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"311ccafd-65ab-4b6f-99b1-b30ee4ac9b7e"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "2f404517-3164-4ec5-a335-084c8ee992b1"],
+ " be a linear operator on a finite dimensional vector space ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", "."}], TraditionalForm]],ExpressionUUID->
+  "b9dd836b-317e-4993-9d29-59e276d6d3df"],
+ "  Then ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "a9b9c250-9f84-4ffe-b8a2-e4cc0fc7abae"],
+ " is diagonalizable if and only if there is a basis for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "ee20d7b9-c79c-4c73-865a-1256662feb1f"],
+ " consisting of eigenvectors of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"T", "."}], TraditionalForm]],ExpressionUUID->
+  "6f5fbe4a-44e7-4fe4-8cbc-661b27d646db"],
+ "  Moreover, when ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Beta]", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      SubscriptBox["v", "1"], ",", " ", 
+      SubscriptBox["v", "2"], ",", "...", ",", 
+      SubscriptBox["v", "n"]}], "}"}]}], TraditionalForm]],ExpressionUUID->
+  "662a9416-7418-4d91-99d3-ecab9e1774ea"],
+ " is a basis for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "14cfd333-cfbc-4980-95e9-a32f520d0a5e"],
+ " consisting of eigenvectors of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"T", ","}], TraditionalForm]],ExpressionUUID->
+  "da53603a-d50a-45ce-8f98-ae9e02613e6c"],
+ " then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"[", "T", "]"}], "\[Beta]"], "=", "D"}], TraditionalForm]],
+  ExpressionUUID->"a45be131-11e5-40f2-b5cb-bed647ad03a5"],
+ " where ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["d", 
+    StyleBox["jj",
+     FontSlant->"Italic"]], TraditionalForm]],ExpressionUUID->
+  "1d4421c4-96b3-479e-8f48-26553ad1deae"],
+ " is the eigenvalue corresponding to the eigenvector ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["v", "j"], TraditionalForm]],ExpressionUUID->
+  "3b83d56c-4382-49ca-ac5c-0bc99450ed5e"],
+ " for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "\[LessEqual]", "j", "\[LessEqual]", 
+    RowBox[{"n", "."}]}], TraditionalForm]],ExpressionUUID->
+  "90458ced-fcfa-41e7-bcac-7598357b0ec4"]
+}], "Text",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, 3.621599458231881*^9, {
+   3.622375382511361*^9, 3.6223757076190605`*^9}, {3.6223758011742105`*^9, 
+   3.6223758011742105`*^9}, {3.6223792309166665`*^9, 3.622379232151112*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"e857b786-b1fa-4f14-b3a2-2c57b7e66068"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Proof:",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.621167080364156*^9, 3.6211670923648076`*^9}, {
+   3.621338848168948*^9, 3.621338932751212*^9}, 3.6213389798589115`*^9, {
+   3.621339399492181*^9, 3.621339484546337*^9}, 3.621343550024905*^9, {
+   3.621599242985607*^9, 3.621599308617822*^9}, 3.621599458231881*^9, {
+   3.622375382511361*^9, 3.6223757076190605`*^9}, 3.6223758011742105`*^9, {
+   3.622379705851779*^9, 3.622379707414343*^9}, {3.6223797794391994`*^9, 
+   3.622379793475978*^9}, {3.906637706160962*^9, 3.906637715577449*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"d5564a45-cd06-4f4a-97ce-e58862d0b703"],
+
+Cell["(\[DoubleLongRightArrow])  ", "Text",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375909857458*^9}, {
+   3.622379588146862*^9, 3.622379588881278*^9}, {3.6223807220121326`*^9, 
+   3.622380733856495*^9}, {3.843574613450145*^9, 3.843574620389392*^9}, {
+   3.8435746852472725`*^9, 3.8435746897421885`*^9}, {3.8435747404354296`*^9, 
+   3.843574751832438*^9}, 3.9066462771670046`*^9},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"09d5822d-689b-4b11-bb7f-e62e267037a0"],
+
+Cell[TextData[{
+ "Assume ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "08f46435-5c94-4eab-ab74-0808d6fdd19b"],
+ " is diagonalizable."
+}], "Text",
+ CellChangeTimes->{{3.8435748137214584`*^9, 3.843574822163575*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"dbb72c49-ecd9-4083-a5e3-e8cd771d7784"],
+
+Cell[TextData[{
+ "Then there is an ordered basis \[Beta] for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "49c970de-3786-4c65-b6ac-1ee7b4032262"],
+ " so that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"[", "T", "]"}], "\[Beta]"], "=", "D"}], TraditionalForm]],
+  ExpressionUUID->"a027a42a-045b-4194-8784-876d1afd4d0e"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["D", TraditionalForm]],ExpressionUUID->
+  "7a59bbc3-264b-4d4d-8456-a59149d07dac"],
+ " is a diagonal matrix.  Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Beta]", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      SubscriptBox["v", "1"], ",", "...", ",", 
+      SubscriptBox["v", "n"]}], "}"}]}], TraditionalForm]],ExpressionUUID->
+  "9444234e-7d3d-4949-96c2-d85044b1410a"],
+ ". For any ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "\[LessEqual]", "j", "\[LessEqual]", "n"}], TraditionalForm]],
+  ExpressionUUID->"0041c347-dd94-4980-9552-1b36bdcff261"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", "(", 
+     SubscriptBox["v", "j"], ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      SubsuperscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], "n"], 
+      RowBox[{
+       SubscriptBox["d", 
+        RowBox[{"i", "\[VeryThinSpace]", "j"}]], 
+       SubscriptBox["v", "i"]}]}], "=", 
+     RowBox[{
+      SubscriptBox["d", 
+       RowBox[{"j", "\[VeryThinSpace]", "j"}]], 
+      SubscriptBox["v", "j"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "c31af48d-5dac-4dcc-a8dc-bd5b892c8d35"],
+ ". Thus each vector in ",
+ Cell[BoxData[
+  FormBox["\[Beta]", TraditionalForm]],ExpressionUUID->
+  "ca43a8a4-1d7c-4e04-80fe-7497237a7cf3"],
+ " is an eigenvector of ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "5fc51ba7-d9d5-4a39-bcb3-f54a285ca4d5"],
+ ".  Moreover, the eigenvalue associated ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["v", "j"], TraditionalForm]],ExpressionUUID->
+  "efb0889f-1a69-45fd-a07c-ac9a3bd09fd3"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["d", 
+    RowBox[{"j", "\[VeryThinSpace]", "j"}]], TraditionalForm]],ExpressionUUID->
+  "0b98c85b-3567-4c34-9a2d-0c34bc71b356"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.8435748137214584`*^9, 3.8435748223584824`*^9}, {
+  3.843574854130435*^9, 3.8435749045720267`*^9}, {3.8435749459176283`*^9, 
+  3.8435749989971313`*^9}, {3.843575033481592*^9, 3.8435751598717303`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"74d04070-8d69-409d-adeb-a27e8073bba9"],
+
+Cell[TextData[{
+ "Hence \[Beta] is a basis for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "c893eaaf-5745-4a06-8e12-8791a7eb300d"],
+ " consisting of eigenvectors."
+}], "Text",
+ CellChangeTimes->{{3.8435748137214584`*^9, 3.843574840378084*^9}, {
+  3.8435751847628117`*^9, 3.8435752054621735`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"d71ac26d-716e-46c7-b81f-f111ff9c6e66"],
+
+Cell[TextData[StyleBox["(\[DoubleLongLeftArrow])  ",
+ FontFamily->"Times New Roman",
+ FontSize->14,
+ FontWeight->"Normal"]], "Text",
+ CellChangeTimes->{{3.8435746250198946`*^9, 3.843574638084224*^9}, {
+   3.843574761124096*^9, 3.8435747795985746`*^9}, 3.9066464359930887`*^9},
+ FontFamily->"Times New Roman",
+ FontWeight->"Normal",ExpressionUUID->"6e5d7717-2f88-4576-b208-da48da0610f8"],
+
+Cell[TextData[{
+ "Let \[Beta] be a basis for ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "2fce368f-08ff-4d33-ae89-3848de0b6468"],
+ " consisting of eigenvectors of ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "f4793461-85b9-48a8-a6bf-d4978b186129"],
+ ".  Write ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Beta]", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      SubscriptBox["v", "1"], ",", "...", ",", 
+      SubscriptBox["v", "n"]}], "}"}]}], TraditionalForm]],ExpressionUUID->
+  "946e9bfe-3160-4af2-b278-c03a139367b7"],
+ ". Since each vector ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["v", "j"], TraditionalForm]],ExpressionUUID->
+  "1033890e-001c-4d62-b73b-f95dead9f025"],
+ " is an eigenvector, we know there exist scalars ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Lambda]", "1"], ",", 
+    SubscriptBox["\[Lambda]", "2"], ",", "...", ",", 
+    SubscriptBox["\[Lambda]", "n"]}], TraditionalForm]],ExpressionUUID->
+  "b521f1f8-90e0-4a97-a6e7-f1399c5a439d"],
+ " so that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", "(", 
+     SubscriptBox["v", "j"], ")"}], "=", 
+    RowBox[{
+     SubscriptBox["\[Lambda]", "j"], 
+     SubscriptBox["v", "j"]}]}], TraditionalForm]],ExpressionUUID->
+  "2aabb6ce-a063-4c7d-aaa8-fe0f954b1bbf"],
+ ".  In particular,"
+}], "Text",
+ CellChangeTimes->{{3.843575225441219*^9, 3.8435752583663073`*^9}, {
+  3.8435752951730785`*^9, 3.843575410845223*^9}, {3.8435754889769545`*^9, 
+  3.8435755590260725`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"91613be6-5319-46ba-8b07-2085f5728839"],
+
+Cell[TextData[{
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"T", "(", 
+     SubscriptBox["v", "j"], ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"0", 
+          SubscriptBox["v", "1"]}], "+"}], "..."}], "+", 
+       RowBox[{"0", 
+        SubscriptBox["v", 
+         RowBox[{"j", "-", "1"}]]}], "+", 
+       RowBox[{
+        SubscriptBox["\[Lambda]", "j"], 
+        SubscriptBox["v", "j"]}], "+", 
+       RowBox[{"0", 
+        SubscriptBox["v", 
+         RowBox[{"j", "+", "1"}]]}], "+"}], "..."}], "+", 
+     RowBox[{"0", 
+      SubscriptBox["v", "n"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "286eddd8-4a02-4932-a2da-7783d89434ab"]
+}], "Text",
+ CellChangeTimes->{{3.843575225441219*^9, 3.8435752583663073`*^9}, {
+  3.8435752951730785`*^9, 3.843575410845223*^9}, {3.8435754889769545`*^9, 
+  3.843575555616866*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"ef0c7075-6b2d-48c4-aab8-db6323e2b167"],
+
+Cell["\<\
+Notice that this implies that all the off-diagonal entries in the j-th column \
+will be zero.\
+\>", "Text",
+ CellChangeTimes->{{3.8435752256481996`*^9, 3.843575225649189*^9}, {
+  3.843575579484185*^9, 3.8435756070482206`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"6924ec26-b467-431f-8091-9fab1f2b7dcf"],
+
+Cell[TextData[{
+ "Hence ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"[", "T", "]"}], "\[Beta]"], " "}], TraditionalForm]],
+  ExpressionUUID->"3939d84b-ccd0-4116-8f85-d6943f045925"],
+ "is a diagonal matrix. "
+}], "Text",
+ CellChangeTimes->{{3.8435752655951824`*^9, 3.843575286566908*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"114f822a-e9a2-44e9-a517-1ee9ecaffbcb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Recall (Theorem): ",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375909857458*^9}, {
+   3.622379588146862*^9, 3.6223795893344135`*^9}, {3.622381062715165*^9, 
+   3.622381119964916*^9}, {3.622547596725388*^9, 3.6225476500874753`*^9}, 
+   3.843301868399843*^9},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"b389ba0c-cbe8-4be7-a3bc-f426493a1926"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Element]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["M", 
+       RowBox[{"n", "\[Cross]", "n"}]], "(", "\[DoubleStruckCapitalF]", ")"}],
+      "."}]}], TraditionalForm]],ExpressionUUID->
+  "b035e39f-6305-4a61-a416-add1119adb0c"],
+ " Then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", " ", "x"}], "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "7c315963-c79c-4b07-b16f-e0d71da6320a"],
+ " has nontrivial solutions if and only if det(",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", ")"}], "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "88366a1a-8350-47be-8baa-e6cc50930d71"],
+ ".  "
+}], "Text",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375909857458*^9}, {
+   3.622379588146862*^9, 3.6223795893344135`*^9}, {3.622381062715165*^9, 
+   3.622381119964916*^9}, {3.622547596725388*^9, 3.6225476500874753`*^9}, 
+   3.906637142036875*^9},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"57e47ab2-41b3-4b8e-ad10-f4744398636e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Theorem : ",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375909857458*^9}, {
+  3.622379588146862*^9, 3.622379589318798*^9}, {3.6225483494953628`*^9, 
+  3.6225483602302732`*^9}, {3.843301871651741*^9, 3.8433018799701576`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"d06c4a60-1127-440d-b59c-2eeba84bd956"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Element]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["M", 
+       RowBox[{"n", "\[Cross]", "n"}]], "(", "\[DoubleStruckCapitalF]", ")"}],
+      "."}]}], TraditionalForm]],ExpressionUUID->
+  "7c97ade2-5b0b-46bf-b816-2766d2e5c1b7"],
+ " Then \[Lambda] is an eigenvalue of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "b3fd8de0-f0c0-45d6-8199-e6098ce35649"],
+ " if and only if det(",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"A", "-", 
+      RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}]}], ")"}], "=", "0"}], 
+   TraditionalForm]],ExpressionUUID->"e79a0658-c355-4ba7-be56-bab3862315d3"],
+ ".  "
+}], "Text",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375909857458*^9}, {
+   3.622379588146862*^9, 3.622379589318798*^9}, {3.6225483494953628`*^9, 
+   3.6225483602302732`*^9}, 3.906637146021127*^9, {3.906647001232561*^9, 
+   3.9066470081267056`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"e7785a8e-e2e2-4cf6-ada9-d3bc659ba10c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Proof : ",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375909857458*^9}, {
+  3.622379588146862*^9, 3.622379589318798*^9}, {3.6225483494953628`*^9, 
+  3.6225483602302732`*^9}, {3.843301871651741*^9, 3.8433018799701576`*^9}, {
+  3.9066468658343763`*^9, 3.906646866436517*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"b3f1bc8a-476b-40b1-9219-1d7f38731aec"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"Det", 
+     RowBox[{"(", 
+      RowBox[{"A", "-", "\[Lambda]I"}], ")"}]}], "=", "0"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "92643b6b-c541-47ab-9a9f-126121567b41"],
+ " if and only if there is a nonzero vector ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "33cddeb3-d42e-424b-8db0-91697e754afb"],
+ " such that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"A", "-", 
+       RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}]}], ")"}], "x"}], "=", 
+    "0"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7d15f637-c401-49b2-a4c5-c6984af890f5"]
+}], "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.9066471008291693`*^9}},ExpressionUUID->"8e4faf0b-45c9-4cfe-bdd3-\
+be872a529d93"],
+
+Cell[" if and only if ", "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.9066471033007874`*^9}},ExpressionUUID->"40ef3120-5e3c-4a6d-87cb-\
+472e8514fc7f"],
+
+Cell[TextData[{
+ "there is a nonzero vector ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5c3b4ab6-b5a7-4491-a9b4-4e305d029483"],
+ " such that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "\[VeryThinSpace]", "x"}], "=", 
+    RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I", "\[VeryThinSpace]", "x"}]}],
+    TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1d9a6ece-3241-4108-a829-c1bb5b917d8b"]
+}], "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.9066471057766953`*^9}},ExpressionUUID->"49cc7015-94d7-4137-998c-\
+bb8107ee1eac"],
+
+Cell[" if and only if ", "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.9066471086843395`*^9}},ExpressionUUID->"142c180e-3625-425d-a250-\
+3728bb18d6e8"],
+
+Cell[TextData[{
+ "there is a nonozero vector ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "36d71b04-e2c4-4365-9183-ff3e1e874aad"],
+ " so that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "\[VeryThinSpace]", "x"}], "=", 
+    RowBox[{"\[Lambda]", "\[VeryThinSpace]", "x"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "99357863-fcc4-4042-997b-d7dfe04c3f70"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.9066471108940773`*^9}},ExpressionUUID->"d321f668-03ac-4d5b-9416-\
+3435d7fcb54f"],
+
+Cell["if and only if ", "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.9066471142640467`*^9}},ExpressionUUID->"b84de80f-c3d0-4ccd-82e1-\
+4d84613fef25"],
+
+Cell[TextData[{
+ "\[Lambda] is an eigenvalue of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e42c767c-5bbb-46bc-b375-a3b0c5300611"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.9066468745289984`*^9, 3.906646946983313*^9}, {
+  3.9066470291215916`*^9, 
+  3.906647088079735*^9}},ExpressionUUID->"b8a88995-54ad-471c-8183-\
+ec0d7ad1160d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Note:  ",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375920326746*^9}, {
+   3.62254773394736*^9, 3.62254773394736*^9}, {3.6225484516939573`*^9, 
+   3.6225485022323194`*^9}, {3.6225485524692397`*^9, 
+   3.6225485524692397`*^9}, {3.6225486174881306`*^9, 
+   3.6225486467126503`*^9}, {3.6225511997103195`*^9, 3.622551199741559*^9}, {
+   3.6225513123003054`*^9, 3.622551330301228*^9}, {3.622551377520517*^9, 
+   3.6225514526650333`*^9}, {3.622551496702791*^9, 3.6225514994529305`*^9}, 
+   3.843301922376959*^9, {3.9066377368430743`*^9, 3.906637738476149*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"2596d768-3d43-4eb7-818b-12fb95d5f95c"],
+
+Cell[TextData[{
+ "The literature uses det(",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[Lambda]", " ", "I"}], "-", "A"}], ")"}], ","}], 
+   TraditionalForm]],ExpressionUUID->"8190b161-70cb-4b04-8c2e-e56a7c0bc1c3"],
+ " but det(",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "-", 
+     RowBox[{"\[Lambda]", " ", "I"}]}], ")"}], TraditionalForm]],
+  ExpressionUUID->"84766ae1-8be9-42eb-a25a-7ba5a8d96ef5"],
+ " is typically used in teaching texts."
+}], "Text",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375920326746*^9}, {
+  3.62254773394736*^9, 3.62254773394736*^9}, {3.6225484516939573`*^9, 
+  3.6225485022323194`*^9}, {3.6225485524692397`*^9, 3.6225485524692397`*^9}, {
+  3.6225486174881306`*^9, 3.6225486467126503`*^9}, {3.6225511997103195`*^9, 
+  3.622551199741559*^9}, {3.6225513123003054`*^9, 3.622551330301228*^9}, {
+  3.622551377520517*^9, 3.6225514526650333`*^9}, {3.622551496702791*^9, 
+  3.6225514994529305`*^9}, {3.9066371750195475`*^9, 3.906637176069581*^9}, {
+  3.9066372329500237`*^9, 3.9066372329500237`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"a104cf38-2a71-4653-92f7-1159d5354a60"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Definition: ",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[0, 0.5, 0.5]]], "Subsubsubsection",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375920326746*^9}, {
+   3.62254773394736*^9, 3.62254773394736*^9}, {3.6225484516939573`*^9, 
+   3.6225485022323194`*^9}, {3.6225485524692397`*^9, 
+   3.6225485524692397`*^9}, {3.6225486174881306`*^9, 
+   3.6225486467126503`*^9}, {3.6225511997103195`*^9, 
+   3.6225512013983326`*^9}, {3.6225519381224537`*^9, 3.62255193977878*^9}, 
+   3.8433020118752265`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"4156fd99-8e81-4586-a118-fcf19d580a16"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Element]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["M", 
+       RowBox[{"n", "\[Cross]", "n"}]], "(", "\[DoubleStruckCapitalF]", ")"}],
+      "."}]}], TraditionalForm]],ExpressionUUID->
+  "9499d1cd-3535-4a22-bbf1-a181a4824464"],
+ " The polynomial ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "\[Lambda]", ")"}], "="}], TraditionalForm]],
+  ExpressionUUID->"4ad90560-1059-4903-8a91-44469f8c2494"],
+ " det(",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "-", 
+     RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}]}], ")"}], 
+   TraditionalForm]],ExpressionUUID->"4dad47a4-618a-4416-a26e-a451978829b1"],
+ " is called the ",
+ StyleBox["characteristic polynomial",
+  FontFamily->"Times New Roman",
+  FontWeight->"Normal",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0., 0., 0.]],
+ " of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "19b0ce9b-1e51-4d0a-8474-e529b9c83c75"],
+ ".  "
+}], "Text",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375920326746*^9}, {
+   3.62254773394736*^9, 3.62254773394736*^9}, {3.6225484516939573`*^9, 
+   3.6225485022323194`*^9}, {3.6225485524692397`*^9, 
+   3.6225485524692397`*^9}, {3.6225486174881306`*^9, 
+   3.6225486467126503`*^9}, {3.6225511997103195`*^9, 
+   3.6225512013983326`*^9}, {3.6225519381224537`*^9, 3.62255193977878*^9}, 
+   3.843302013833135*^9, {3.9066472120789165`*^9, 3.9066472183286266`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"16c68569-726f-4683-b89f-5fca4b1d1846"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Remark: ",
+ FontWeight->"Bold",
+ FontColor->RGBColor[0, 0.5, 0.5]]], "Subsubsubsection",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375920326746*^9}, {
+  3.62254773394736*^9, 3.62254773394736*^9}, {3.6225484516939573`*^9, 
+  3.6225485022323194`*^9}, {3.6225485524692397`*^9, 3.622548609300214*^9}, {
+  3.843554968025321*^9, 3.8435549706231117`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"de21bc36-7c73-4973-902a-f5644b1a52a0"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[Element]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["M", 
+       RowBox[{"n", "\[Cross]", "n"}]], "(", "\[DoubleStruckCapitalF]", ")"}],
+      "."}]}], TraditionalForm]],ExpressionUUID->
+  "112f0e28-a932-4ed6-a67e-af93da3b2bac"],
+ " The roots of the ",
+ StyleBox["characteristic polynomial",
+  FontFamily->"Times New Roman",
+  FontWeight->"Normal",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0., 0., 0.]],
+ " of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "241cc956-0161-4d5d-89fa-388f0a4573aa"],
+ " are precisely the eigenvalues of ",
+ Cell[BoxData[
+  FormBox["A", TraditionalForm]],ExpressionUUID->
+  "f7fc5c18-930b-421c-9e09-cfa00ede979c"],
+ ".  "
+}], "Text",
+ CellChangeTimes->{{3.62237581264359*^9, 3.622375920326746*^9}, {
+  3.62254773394736*^9, 3.62254773394736*^9}, {3.6225484516939573`*^9, 
+  3.6225485022323194`*^9}, {3.6225485524692397`*^9, 3.622548609300214*^9}, {
+  3.843554968025321*^9, 3.8435549722010684`*^9}, {3.843555060150955*^9, 
+  3.8435550705085645`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"e197f1ba-7d5c-4c8b-b9b5-c312d34533a2"],
+
+Cell["\<\
+So how do we move from matrices to linear operator?  How would you find the \
+characteristic polynomial of a linear operator?  We could find a matrix \
+representation of the linear operator with respect to a basis.\
+\>", "Text",
+ CellChangeTimes->{{3.906647335738201*^9, 3.906647405996373*^9}, {
+  3.906647443831394*^9, 
+  3.9066474566184473`*^9}},ExpressionUUID->"5ee3d75f-80a8-491b-8a1f-\
+294d4bdead92"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "Subsubsubsection",ExpressionUUID->"1865bd6a-7ef9-4bd9-9c8b-c1461e5d7a13"],
+
+Cell[TextData[{
+ "Recall:  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"[", "T", "]"}], "\[Beta]"], "=", 
+    SuperscriptBox["Q", 
+     RowBox[{"-", "1"}]]}], TraditionalForm]],ExpressionUUID->
+  "b1925b1b-c26c-4599-813b-2d6bd8ad74b3"],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    RowBox[{"[", "T", "]"}], "\[Gamma]"], TraditionalForm]],ExpressionUUID->
+  "5db81b01-231b-49f0-9e75-6cfe4c2e7cd5"],
+ Cell[BoxData[
+  FormBox["Q", TraditionalForm]],ExpressionUUID->
+  "c70ad008-d16e-4739-8710-6f2dfe9107a8"],
+ " so "
+}], "Text",
+ CellChangeTimes->{{3.8437467330741186`*^9, 3.843746844365362*^9}, {
+  3.843746895448583*^9, 3.843747182868312*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"1f6657a7-d3d4-4a53-a7bf-8b35e3b2bcec"],
+
+Cell[TextData[{
+ "det",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}], "-", 
+      SubscriptBox[
+       RowBox[{"[", "T", "]"}], "\[Beta]"]}], ")"}], "="}], TraditionalForm]],
+  ExpressionUUID->"b140b0c5-834e-42e2-bed8-8c57ebc32043"],
+ " det ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Lambda]", "\[VeryThinSpace]", 
+       SuperscriptBox["Q", 
+        RowBox[{"-", "1"}]], "I", "\[VeryThinSpace]", "Q"}], "-", 
+      RowBox[{
+       SubscriptBox[
+        RowBox[{
+         SuperscriptBox["Q", 
+          RowBox[{"-", "1"}]], "[", "T", "]"}], "\[Gamma]"], "Q"}]}], ")"}], 
+    " "}], TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{"det", 
+     FormBox[
+      RowBox[{
+       RowBox[{"(", "\[VeryThinSpace]", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["Q", 
+           RowBox[{"-", "1"}]], "(", 
+          RowBox[{
+           RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}], "-", 
+           SubscriptBox[
+            RowBox[{"[", "T", "]"}], "\[Gamma]"]}], ")"}], "Q"}], ")"}], " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"=", 
+        RowBox[{
+         RowBox[{"det", "(", 
+          SuperscriptBox["Q", 
+           RowBox[{"-", "1"}]], ")"}], 
+         RowBox[{"det", "(", 
+          RowBox[{
+           RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}], "-", 
+           SubscriptBox[
+            RowBox[{"[", "T", "]"}], "\[Gamma]"]}], ")"}], 
+         RowBox[{"det", "(", "Q", ")"}]}]}]}],
+      TraditionalForm]}]}], TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{"det", "(", 
+     RowBox[{
+      RowBox[{"\[Lambda]", "\[VeryThinSpace]", "I"}], "-", 
+      SubscriptBox[
+       RowBox[{"[", "T", "]"}], "\[Gamma]"]}], ")"}]}], TraditionalForm]}],
+  ExpressionUUID->"f6674d41-2d44-477b-9548-730944be9f6e"]
+}], "Text",
+ CellChangeTimes->{{3.8437467330741186`*^9, 3.843746844365362*^9}, {
+  3.843746895448583*^9, 3.843747207005163*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"b50164e6-9302-4f49-b48b-db25790bd684"],
+
+Cell["\<\
+The coefficients of the eigenvectors will look different because they are \
+coefficients with respect to different bases.  When you translate them back \
+into the original vector space, they will be the same.\
+\>", "Text",
+ CellChangeTimes->{{3.843747231798306*^9, 3.843747292054985*^9}, {
+  3.9066378014897037`*^9, 3.906637805172826*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"56ecc9b0-c892-4c74-b581-b52866b3b225"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Theorem:",
+  FontFamily->"Times New Roman",
+  FontColor->RGBColor[0., 0.5019607843137255, 0.5019607843137255]],
+ StyleBox[" ",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 0.7]]
+}], "Subsubsubsection",
+ CellChangeTimes->{{3.622549073324427*^9, 3.622549158969363*^9}, {
+   3.6225493988262625`*^9, 3.622549398841859*^9}, 3.8435551375517645`*^9},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"5e5b565e-d033-462c-909d-f250e7f5a5a9"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "00bb3ffb-2f02-434e-8a04-9cc3bfd5e0dc"],
+ " be a linear operator on a finite dimensional vector space ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "f6fc853a-6683-4e5f-9fb8-c4c24dfbab35"],
+ " and let \[Lambda] be an eigenvalue of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"T", "."}], TraditionalForm]],ExpressionUUID->
+  "67b6a9a2-5008-4124-b583-fc6f055f7ed7"],
+ "  Then ",
+ Cell[BoxData[
+  FormBox["v", TraditionalForm]],ExpressionUUID->
+  "3438cf28-a170-453b-9174-3eb6d50311e2"],
+ " is an eigenvector of ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "2b13bc29-3657-4000-96d1-1d40e24e4743"],
+ " corresponding to \[Lambda] if and only if ",
+ Cell[BoxData[
+  FormBox["v", TraditionalForm]],ExpressionUUID->
+  "c1513c08-36ae-455c-9aad-a40cf1fe4217"],
+ " is a nonzero vector in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"N", "(", 
+     RowBox[{
+      RowBox[{"\[Lambda]", " ", 
+       SubscriptBox["I", "V"]}], "-", "T"}], ")"}], "."}], TraditionalForm]],
+  ExpressionUUID->"ee57ff0b-ab38-48b5-8ae2-dffd02c16dd7"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.622549073324427*^9, 3.622549158969363*^9}, {
+   3.6225493988262625`*^9, 3.622549398841859*^9}, 3.843555139245989*^9, {
+   3.9066477800301547`*^9, 3.906647781315114*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"4230ce7f-a773-46f8-994e-a33b29ed6d53"],
+
+Cell[TextData[StyleBox["Proof:  ", "Subsubsubsection",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[0., 0.5019607843137255, 0.5019607843137255]]], "Text",
+ CellChangeTimes->{{3.622549073324427*^9, 3.622549158969363*^9}, {
+   3.6225493988262625`*^9, 3.6225493991231527`*^9}, {3.622552597382452*^9, 
+   3.6225526079298706`*^9}, 3.8435551607476707`*^9, {3.9066377469343524`*^9, 
+   3.906637748492622*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"5a214e34-aba1-462e-8d78-10de7a30d788"],
+
+Cell["Very similar to parts of the matrix proof above.", "Text",
+ CellChangeTimes->{{3.622549073324427*^9, 3.622549158969363*^9}, {
+  3.6225493988262625`*^9, 3.6225493991231527`*^9}, {3.622552597382452*^9, 
+  3.6225526079298706`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"dee559f6-3659-42c9-bdbd-cc7d2b800e20"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Definition: ",
+ FontFamily->"Times New Roman",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.6225492814999084`*^9, 3.622549339866684*^9}, {
+   3.6225493832942*^9, 3.6225493919040365`*^9}, {3.622552658103648*^9, 
+   3.6225526617598667`*^9}, 3.8435551812459116`*^9, {3.906637490388244*^9, 
+   3.9066374915046124`*^9}, {3.9066377518925*^9, 3.9066377569689665`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"71b60d13-3ce0-4877-b88a-8504c43ae8ab"],
+
+Cell[TextData[{
+ "Let ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "fa06b3f0-3037-4c61-96d0-81bb0c8a0226"],
+ " be a linear operator on a vector space ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "fce14979-b544-4f2b-b077-73ec58835584"],
+ " and let \[Lambda] be an eigenvalue of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"T", "."}], TraditionalForm]],ExpressionUUID->
+  "4ef364ce-01d0-4046-bd30-aa645ca7d653"],
+ "  Then  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"N", "(", 
+    RowBox[{
+     RowBox[{"\[Lambda]", " ", "I"}], "-", "T"}], ")"}], TraditionalForm]],
+  ExpressionUUID->"08fadc45-fdff-405f-bfcf-300df62f0ecf"],
+ " is referred to as the ",
+ StyleBox["eigenspace",
+  FontFamily->"Times New Roman",
+  FontWeight->"Normal",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0., 0., 0.]],
+ " of ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "e08c59e5-8734-4fd9-a9c6-8ba465d572b8"],
+ " corresponding to the eigenvalue \[Lambda]. "
+}], "Text",
+ CellChangeTimes->{{3.6225492814999084`*^9, 3.622549339866684*^9}, {
+  3.6225493832942*^9, 3.6225493919040365`*^9}, {3.622552658103648*^9, 
+  3.6225526617598667`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"d1ed6c48-a402-4a4b-a01e-ab4caf571284"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Example:",
+ FontColor->RGBColor[
+  0., 0.5019607843137255, 0.5019607843137255]]], "Subsubsubsection",
+ CellChangeTimes->{{3.8437467240612755`*^9, 3.8437467255702195`*^9}, {
+  3.9066375212698865`*^9, 3.9066375256851864`*^9}, {3.906637812753715*^9, 
+  3.9066378147058496`*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->12,ExpressionUUID->"7c14a222-d218-4a57-b1df-6d57e7cb458f"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"T", "(", 
+   RowBox[{"a", " ", "+", 
+    RowBox[{"b", " ", "x"}], "+", 
+    RowBox[{"c", " ", 
+     SuperscriptBox["x", "2"]}], "+", 
+    RowBox[{"d", " ", 
+     SuperscriptBox["x", "3"]}]}], ")"}], 
+  TraditionalForm]],ExpressionUUID->"5d0942ff-c445-4bb5-bfa9-31004a235329"]], \
+"Text",
+ CellChangeTimes->{{3.622376001257618*^9, 3.622376063229617*^9}, {
+  3.6223762800833955`*^9, 3.622376460393091*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"65baaaf0-00d4-4dfa-ba80-071d7e4b2f2a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"5", " ", "a"}], "+", "b", "-", "c", "-", "d"}], ")"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"a", "+", 
+        RowBox[{"5", " ", "b"}], "-", "c", "-", "d"}], ")"}], "x"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "a"}], "-", "b", "+", 
+        RowBox[{"6", " ", "c"}]}], ")"}], 
+      SuperscriptBox["x", "2"]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "a"}], "-", "b", "+", 
+        RowBox[{"6", " ", "d"}]}], ")"}], 
+      SuperscriptBox["x", "3"]}]}]}], TraditionalForm]],
+  CellChangeTimes->{3.622376264035672*^9},
+  FontWeight->"Normal",ExpressionUUID->"4fdd3f3b-44a7-4b84-8f9e-c698f9b2e21f"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.622376001257618*^9, 3.622376063229617*^9}, {
+  3.6223762800833955`*^9, 3.6223764815660744`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"f5ebc2f6-3bbe-4d55-b75e-5c4e868b5867"],
+
+Cell[TextData[{
+ "Is ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "bd76824b-583a-4700-8dab-fb600097ae5c"],
+ " diagonalizable?  If so, find a basis \[Beta] so that ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    RowBox[{"[", "T", "]"}], "\[Beta]"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f232a0bd-c7de-4d34-95a2-c1dd0a499527"],
+ " is a diagonal matrix. How many  different diagonal matrix representations \
+can ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "23c0db37-fd63-4aa5-9f87-2d8cd4ebeebf"],
+ " have?"
+}], "Text",
+ CellChangeTimes->{{3.622549073324427*^9, 3.622549158969363*^9}, {
+  3.6225493988262625`*^9, 3.6225493993575397`*^9}, {3.9066375365763407`*^9, 
+  3.9066376396974335`*^9}},
+ FontFamily->
+  "Times New Roman",ExpressionUUID->"9a4a0848-d55d-4608-a5fb-0f5572a0bbf8"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{949., 466.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
+Magnification:>2. Inherited,
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (February 4, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Article"}, "JournalArticle.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"ba0ce83b-0b25-4d2e-96b0-9e23aa0d6dcf"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 529, 9, 134, "Title",ExpressionUUID->"28ef0196-bf89-4053-9813-6dc8f407d461"],
+Cell[CellGroupData[{
+Cell[1134, 35, 349, 6, 46, "Subsubsubsection",ExpressionUUID->"fd107bc7-e906-4161-b5bf-181a5b1001f2"],
+Cell[1486, 43, 509, 9, 78, "Text",ExpressionUUID->"8e5ff7e2-b286-4ec7-b3e9-77b22790ff0b"],
+Cell[1998, 54, 461, 9, 44, "Text",ExpressionUUID->"6ac6c061-0c2f-4d1b-8685-92e6c2d03d46"],
+Cell[2462, 65, 430, 6, 44, "Text",ExpressionUUID->"d6f0058f-d542-416d-b666-6ef6050ad616"],
+Cell[2895, 73, 415, 10, 44, "Text",ExpressionUUID->"8b0f704e-bf44-4d7c-bbf8-ebae1c4810d9",
+ InitializationCell->True],
+Cell[3313, 85, 214, 3, 44, "Text",ExpressionUUID->"750332a4-4588-4bee-b4ae-06ca1d9f038f"],
+Cell[3530, 90, 446, 7, 44, "Text",ExpressionUUID->"aacd062a-0513-49e5-a151-d7d644f1de28"],
+Cell[3979, 99, 234, 3, 44, "Text",ExpressionUUID->"d33797f0-d5e4-4508-b5c8-a91ef3ffbc9b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4250, 107, 708, 15, 46, "Subsubsubsection",ExpressionUUID->"2ed98b57-25a4-443e-97de-25581b4004eb"],
+Cell[4961, 124, 305, 4, 44, "Text",ExpressionUUID->"bbcfd546-5558-4f3a-85b7-d08e00fd89f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5303, 133, 769, 16, 46, "Subsubsubsection",ExpressionUUID->"bf97c117-8c94-42ce-a664-33843b18e233"],
+Cell[6075, 151, 664, 11, 180, "Text",ExpressionUUID->"017d599a-51e2-491b-9217-6210cef6601a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6776, 167, 671, 10, 82, "Section",ExpressionUUID->"5d27fedc-ed0b-4c65-92a0-3c2519f58976"],
+Cell[CellGroupData[{
+Cell[7472, 181, 804, 12, 46, "Subsubsubsection",ExpressionUUID->"bdf7b829-0c80-4db7-ab1f-1e4f9d86f79f"],
+Cell[8279, 195, 1227, 24, 44, "Text",ExpressionUUID->"0ef3e1f5-84f3-44e7-9114-118a46ac16c4"],
+Cell[9509, 221, 833, 12, 44, "Text",ExpressionUUID->"fabac2cb-79be-4293-a7c9-b88d29e1e835"],
+Cell[10345, 235, 1017, 21, 44, "Text",ExpressionUUID->"1f63c207-a8f9-4974-bb2d-b7f16359660d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11399, 261, 758, 12, 46, "Subsubsubsection",ExpressionUUID->"8b1f33c9-aece-4692-8d2b-5acfad738161"],
+Cell[12160, 275, 1629, 39, 81, "Text",ExpressionUUID->"c9f358d2-e598-4381-84d6-6bb114987aa5"],
+Cell[13792, 316, 623, 17, 88, "Text",ExpressionUUID->"738cf88a-9a3f-402e-a3b0-125dd968f351"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14452, 338, 818, 12, 50, "Subsubsubsection",ExpressionUUID->"3511a0be-d760-444d-b313-beb46c9d4ae7"],
+Cell[15273, 352, 1962, 52, 112, "Text",ExpressionUUID->"50fbf9b3-a442-404b-ad53-8451c58eea62"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17272, 409, 401, 7, 46, "Subsubsubsection",ExpressionUUID->"6242717c-56fe-45de-a661-77335f5119ef"],
+Cell[17676, 418, 543, 14, 47, "Text",ExpressionUUID->"2d05e962-71be-4d8b-8247-fa4deddafbde"],
+Cell[18222, 434, 1037, 31, 44, "Text",ExpressionUUID->"54667ba4-3278-4c3e-bf37-7910c5cc6ff4"],
+Cell[19262, 467, 1042, 29, 47, "Text",ExpressionUUID->"93cbb7d3-7877-4558-b24e-68587fba3b88"],
+Cell[20307, 498, 467, 13, 44, "Text",ExpressionUUID->"f7c7613c-7a1b-4440-bb58-1b24e76a878d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20811, 516, 380, 7, 46, "Subsubsubsection",ExpressionUUID->"98b7bf05-c4f8-4a23-a4d3-4b3f3ccdddcc"],
+Cell[21194, 525, 495, 12, 44, "Text",ExpressionUUID->"824d6a4a-2e78-41a1-9929-49ecbfeea8cd"],
+Cell[21692, 539, 445, 11, 44, "Text",ExpressionUUID->"0380e158-901e-4deb-9b06-6bc37da21d5d"],
+Cell[22140, 552, 311, 5, 44, "Text",ExpressionUUID->"d5b98ef7-855c-487f-8e55-28933ca7b37d"],
+Cell[22454, 559, 377, 9, 44, "Text",ExpressionUUID->"815ebbb4-1c5e-4fb4-b9be-8363f9347ae0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22868, 573, 684, 11, 46, "Subsubsubsection",ExpressionUUID->"311ccafd-65ab-4b6f-99b1-b30ee4ac9b7e"],
+Cell[23555, 586, 2689, 75, 149, "Text",ExpressionUUID->"e857b786-b1fa-4f14-b3a2-2c57b7e66068"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26281, 666, 767, 12, 46, "Subsubsubsection",ExpressionUUID->"d5564a45-cd06-4f4a-97ce-e58862d0b703"],
+Cell[27051, 680, 476, 7, 44, "Text",ExpressionUUID->"09d5822d-689b-4b11-bb7f-e62e267037a0"],
+Cell[27530, 689, 328, 9, 44, "Text",ExpressionUUID->"dbb72c49-ecd9-4083-a5e3-e8cd771d7784"],
+Cell[27861, 700, 2464, 74, 124, "Text",ExpressionUUID->"74d04070-8d69-409d-adeb-a27e8073bba9"],
+Cell[30328, 776, 412, 10, 44, "Text",ExpressionUUID->"d71ac26d-716e-46c7-b81f-f111ff9c6e66"],
+Cell[30743, 788, 386, 7, 48, "Text",ExpressionUUID->"6e5d7717-2f88-4576-b208-da48da0610f8"],
+Cell[31132, 797, 1599, 47, 115, "Text",ExpressionUUID->"91613be6-5319-46ba-8b07-2085f5728839"],
+Cell[32734, 846, 979, 31, 47, "Text",ExpressionUUID->"ef0c7075-6b2d-48c4-aab8-db6323e2b167"],
+Cell[33716, 879, 326, 7, 44, "Text",ExpressionUUID->"6924ec26-b467-431f-8091-9fab1f2b7dcf"],
+Cell[34045, 888, 405, 12, 47, "Text",ExpressionUUID->"114f822a-e9a2-44e9-a517-1ee9ecaffbcb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34487, 905, 510, 9, 46, "Subsubsubsection",ExpressionUUID->"b389ba0c-cbe8-4be7-a3bc-f426493a1926"],
+Cell[35000, 916, 1025, 30, 44, "Text",ExpressionUUID->"57e47ab2-41b3-4b8e-ad10-f4744398636e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36062, 951, 476, 8, 46, "Subsubsubsection",ExpressionUUID->"d06c4a60-1127-440d-b59c-2eeba84bd956"],
+Cell[36541, 961, 1060, 30, 44, "Text",ExpressionUUID->"e7785a8e-e2e2-4cf6-ada9-d3bc659ba10c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37638, 996, 525, 9, 46, "Subsubsubsection",ExpressionUUID->"b3f1bc8a-476b-40b1-9219-1d7f38731aec"],
+Cell[38166, 1007, 948, 29, 44, "Text",ExpressionUUID->"8e4faf0b-45c9-4cfe-bdd3-be872a529d93"],
+Cell[39117, 1038, 213, 4, 44, "Text",ExpressionUUID->"40ef3120-5e3c-4a6d-87cb-472e8514fc7f"],
+Cell[39333, 1044, 673, 19, 44, "Text",ExpressionUUID->"49cc7015-94d7-4137-998c-bb8107ee1eac"],
+Cell[40009, 1065, 213, 4, 44, "Text",ExpressionUUID->"142c180e-3625-425d-a250-3728bb18d6e8"],
+Cell[40225, 1071, 649, 19, 44, "Text",ExpressionUUID->"d321f668-03ac-4d5b-9416-3435d7fcb54f"],
+Cell[40877, 1092, 212, 4, 44, "Text",ExpressionUUID->"b84de80f-c3d0-4ccd-82e1-4d84613fef25"],
+Cell[41092, 1098, 385, 11, 44, "Text",ExpressionUUID->"b8a88995-54ad-471c-8183-ec0d7ad1160d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41514, 1114, 807, 13, 46, "Subsubsubsection",ExpressionUUID->"2596d768-3d43-4eb7-818b-12fb95d5f95c"],
+Cell[42324, 1129, 1166, 27, 44, "Text",ExpressionUUID->"a104cf38-2a71-4653-92f7-1159d5354a60"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43527, 1161, 633, 11, 46, "Subsubsubsection",ExpressionUUID->"4156fd99-8e81-4586-a118-fcf19d580a16"],
+Cell[44163, 1174, 1556, 44, 79, "Text",ExpressionUUID->"16c68569-726f-4683-b89f-5fca4b1d1846"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45756, 1223, 478, 8, 46, "Subsubsubsection",ExpressionUUID->"de21bc36-7c73-4973-902a-f5644b1a52a0"],
+Cell[46237, 1233, 1171, 33, 78, "Text",ExpressionUUID->"e197f1ba-7d5c-4c8b-b9b5-c312d34533a2"],
+Cell[47411, 1268, 415, 8, 112, "Text",ExpressionUUID->"5ee3d75f-80a8-491b-8a1f-294d4bdead92"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47863, 1281, 83, 0, 50, "Subsubsubsection",ExpressionUUID->"1865bd6a-7ef9-4bd9-9c8b-c1461e5d7a13"],
+Cell[47949, 1283, 762, 23, 48, "Text",ExpressionUUID->"1f6657a7-d3d4-4a53-a7bf-8b35e3b2bcec"],
+Cell[48714, 1308, 2145, 65, 161, "Text",ExpressionUUID->"b50164e6-9302-4f49-b48b-db25790bd684"],
+Cell[50862, 1375, 439, 8, 112, "Text",ExpressionUUID->"56ecc9b0-c892-4c74-b581-b52866b3b225"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51338, 1388, 477, 11, 46, "Subsubsubsection",ExpressionUUID->"5e5b565e-d033-462c-909d-f250e7f5a5a9"],
+Cell[51818, 1401, 1459, 41, 112, "Text",ExpressionUUID->"4230ce7f-a773-46f8-994e-a33b29ed6d53"],
+Cell[53280, 1444, 500, 8, 48, "Text",ExpressionUUID->"5a214e34-aba1-462e-8d78-10de7a30d788"],
+Cell[53783, 1454, 324, 5, 44, "Text",ExpressionUUID->"dee559f6-3659-42c9-bdbd-cc7d2b800e20"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54144, 1464, 555, 9, 46, "Subsubsubsection",ExpressionUUID->"71b60d13-3ce0-4877-b88a-8504c43ae8ab"],
+Cell[54702, 1475, 1268, 37, 78, "Text",ExpressionUUID->"d1ed6c48-a402-4a4b-a01e-ab4caf571284"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56007, 1517, 401, 7, 46, "Subsubsubsection",ExpressionUUID->"7c14a222-d218-4a57-b1df-6d57e7cb458f"],
+Cell[56411, 1526, 543, 14, 47, "Text",ExpressionUUID->"65baaaf0-00d4-4dfa-ba80-071d7e4b2f2a"],
+Cell[56957, 1542, 1037, 31, 44, "Text",ExpressionUUID->"f5ebc2f6-3bbe-4d55-b75e-5c4e868b5867"],
+Cell[57997, 1575, 923, 25, 81, "Text",ExpressionUUID->"9a4a0848-d55d-4608-a5fb-0f5572a0bbf8"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
